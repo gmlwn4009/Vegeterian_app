@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="15dp">
 
         <LinearLayout
             android:id="@+id/linear_layout"
@@ -28,9 +28,11 @@
 
                 <ImageView
                     android:id="@+id/imageView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/ic_launcher_foreground"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    app:srcCompat="@drawable/ic_sharp_local_florist_24"
                     tools:ignore="VectorDrawableCompat" />
 
                 <LinearLayout
@@ -56,8 +58,8 @@
                         android:layout_height="0dp"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:text="secondary_text"
                         android:fontFamily="@font/roboto"
+                        android:text="secondary_text"
                         android:textAppearance="?attr/textAppearanceBody2"
                         android:textColor="?android:attr/textColorSecondary" />
 
@@ -88,9 +90,10 @@
                     android:id="@+id/content_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="this is information space"
                     android:fontFamily="@font/roboto"
+                    android:text="this is information space"
                     android:textAppearance="?attr/textAppearanceBody2"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/image_view2"></TextView>
             </androidx.constraintlayout.widget.ConstraintLayout>
