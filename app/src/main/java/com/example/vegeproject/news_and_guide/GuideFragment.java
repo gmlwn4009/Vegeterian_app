@@ -58,8 +58,13 @@ public class GuideFragment extends Fragment {
                 "락토는 달걀을 제외한 유제품까지는 먹는 단계이다.\n" +
                 "비건은 식물성 음식만을 먹는 단계이다.\n",R.drawable.ic_launcher_foreground,R.drawable.ic_launcher_foreground);
 
-        adapter.addItem("비건을 하는 이유는?" , "Why do we eat vegetables","ewwewe",R.drawable.ic_launcher_foreground,R.drawable.ic_launcher_foreground);
-        adapter.addItem("비건의 장점은?", "The advantage of vegan","jeeju",R.drawable.ic_launcher_foreground,R.drawable.ic_launcher_foreground);
+        adapter.addItem("비건을 하는 이유는?" , "Why do we eat vegetables","환경적인 이유와 윤리적인 이유가 크게 영향을 끼친다. \n" +
+                "환경적인 측면에서 볼 때 대량소비를 위한 고기의 생산, 특히 공장형 축산은 환경에 비친화적이고 유해하다. \n" +
+                "실제로 2006년 유엔의 조사에 따르면 축산업은 환경을 악화시키는 주된 요인 가운데 하나라고 한다. \n" +
+                "대규모 축산은 공기와 수질을 오염시키고 토양을 악화시키며, 기후변화를 야기하고 생물학적 다양성을 파괴한다.\n" +
+                "윤리적인 측면에서는 가축의 사육환경과 도축과정 등을 문제 삼는다.\n",R.drawable.ic_launcher_foreground,R.drawable.ic_launcher_foreground);
+
+        adapter.addItem("비건의 장점은?", "The advantage of vegan","고혈압, 비만, 심혈관계 질환, 심장병, 당뇨병 등을 예방한다.",R.drawable.ic_launcher_foreground,R.drawable.ic_launcher_foreground);
         return root;
     }
 }
