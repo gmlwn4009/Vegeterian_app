@@ -1,6 +1,7 @@
 package com.example.vegeproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        View fragment = findViewById(R.id.fragment3);
+        fragment.setVisibility(View.INVISIBLE);
 
         button1 = (Button)findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 transactions.commit();
             }
         });
+
 
     }
 }
