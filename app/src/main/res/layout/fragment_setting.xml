@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
+    <!-- **불투명으로 설정해야함**-->
 
     <TextView
         android:id="@+id/textView2"

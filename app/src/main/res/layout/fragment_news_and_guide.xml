@@ -5,7 +5,9 @@
     android:id="@+id/fragment_news_and_guide"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".news_and_guide.news_and_guide_fragment">
+    <!-- **불투명으로 설정해야함**-->
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"

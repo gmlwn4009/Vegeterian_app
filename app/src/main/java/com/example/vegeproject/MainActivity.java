@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction transactions = getSupportFragmentManager().beginTransaction();
                 searchFragment = new search_fragment();
                 transactions.replace(R.id.container, searchFragment);
-                transactions.addToBackStack(null);
-                transactions.commit();
+                transactions.addToBackStack(null);  //back키 누르면 다시 액티비티로 돌아오도록 설정
+                transactions.commit();  //
             }
         });
 
