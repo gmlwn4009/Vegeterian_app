@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 searchFragment = new search_fragment();
                 transactions.replace(R.id.container, searchFragment);
                 transactions.addToBackStack(null);  //back키 누르면 다시 액티비티로 돌아오도록 설정
-                transactions.commit();  //
+                transactions.commit();
             }
         });
 
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction transactions = getSupportFragmentManager().beginTransaction();
                 barcodeFragment = new barcode_fragment();
                 transactions.replace(R.id.container, barcodeFragment);
-                transactions.addToBackStack(null);
+                transactions.addToBackStack(null);  //back키 누르면 다시 액티비티로 돌아오도록 설정
                 transactions.commit();
             }
         });
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction transactions = getSupportFragmentManager().beginTransaction();
                 newsAndGuideFragment = new news_and_guide_fragment();
                 transactions.replace(R.id.container, newsAndGuideFragment);
-                transactions.addToBackStack(null);
+                transactions.addToBackStack(null);  //back키 누르면 다시 액티비티로 돌아오도록 설정
                 transactions.commit();
             }
         });
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction transactions = getSupportFragmentManager().beginTransaction();
                 settingFragment = new setting_fragment();
                 transactions.replace(R.id.container, settingFragment);
-                transactions.addToBackStack(null);
+                transactions.addToBackStack(null);  //back키 누르면 다시 액티비티로 돌아오도록 설정
                 transactions.commit();
             }
         });
