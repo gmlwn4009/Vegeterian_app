@@ -1,29 +1,26 @@
 package com.example.vegeproject.news_and_guide;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.vegeproject.R;
 import com.google.android.material.tabs.TabLayout;
 
-public class news_and_guide_fragment extends Fragment {
+public class news_and_guide_Activity extends AppCompatActivity {
 
     private View newsFragment;
     private View guideFragment;
     private TabLayout tabLayout;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_news_and_guide, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.acitivity_news_and_guide);
 
-        tabLayout = root.findViewById(R.id.tab_layout);
-        newsFragment = root.findViewById(R.id.newsFragment);
-        guideFragment = root.findViewById(R.id.guideFragment);
+        tabLayout = findViewById(R.id.tab_layout);
+        newsFragment = findViewById(R.id.newsFragment);
+        guideFragment = findViewById(R.id.guideFragment);
 
         newsFragment.setVisibility(View.VISIBLE);
         guideFragment.setVisibility(View.INVISIBLE);
@@ -52,7 +49,5 @@ public class news_and_guide_fragment extends Fragment {
 
             }
         });
-
-        return root;
     }
 }
