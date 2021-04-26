@@ -25,8 +25,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
-                android:background="@drawable/shape_dash"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@drawable/nature"
+            >
+            <!-- 위에 drawable 에러나서 암꺼나 바꿔놓음-->
 
                 <ImageView
                     android:id="@+id/imageView1"
