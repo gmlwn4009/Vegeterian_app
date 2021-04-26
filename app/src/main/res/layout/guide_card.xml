@@ -26,9 +26,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:orientation="horizontal"
-                android:background="@drawable/nature"
+                android:background="@drawable/rectangle_dashgap"
             >
-            <!-- 위에 drawable 에러나서 암꺼나 바꿔놓음-->
+
 
                 <ImageView
                     android:id="@+id/imageView1"
