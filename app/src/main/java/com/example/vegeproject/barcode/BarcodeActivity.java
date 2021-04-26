@@ -25,21 +25,21 @@ public class BarcodeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barcode);
 
-        btn1=(Button)findViewById(R.id.btn1);
 
         Scan = new IntentIntegrator(this);
         Scan.setOrientationLocked(false);//폰 방향대로 가로세로모드변경
         Scan.setPrompt("바코드를 카메라 중앙에 맞춰주세요.");
         Scan.initiateScan();
 
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        result_fragment fragment1= new result_fragment();
+        transaction.replace(R.id.frame,fragment1);
+        transaction.addToBackStack(null);
+        transaction.commit();
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                result_fragment fragment1= new result_fragment();
-                transaction.replace(R.id.frame,fragment1);
-                transaction.addToBackStack(null);
-                transaction.commit();
 
             }
         });
