@@ -3,6 +3,8 @@
     <color name="green_200">#FFbdf479</color>
     <color name="green_500">#FF8ac149</color>
     <color name="green_700">#FF599015</color>
+    <color name="green">#81b41a</color>
+    <color name="ivory">#F6F6F2</color>
     <color name="yellow_200">#FFffff72</color>
     <color name="yellow_700">#FFc8b900</color>
     <color name="black">#FF000000</color>

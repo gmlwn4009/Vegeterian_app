@@ -1,20 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".setting.SettingActivity">
-    <!-- **불투명으로 설정해야함**-->
+    android:orientation="vertical"
+    android:background="#F6F6F2">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/rectangle_dashgap"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:src="@drawable/no_profile"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="o6o4_님, 안녕하세요."
+                android:textColor="#373737"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:letterSpacing="-0.05"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="당신은 플렉시테리언이군요!"
+                android:textColor="#373737"
+                android:textSize="10sp"
+                android:letterSpacing="-0.05"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
+
+            <ImageView
+                android:src="@drawable/level_flexitarian"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="this is setting view."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="15dp">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="개인정보 수정"
+            android:textColor="#373737"
+            android:gravity="center"
+            android:background="@drawable/rectangle_dashgap"
+            android:letterSpacing="-0.05"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="1:1 문의"
+            android:textColor="#373737"
+            android:gravity="center"
+            android:background="@drawable/rectangle_dashgap"
+            android:letterSpacing="-0.05"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="또뭐가"
+            android:textColor="#373737"
+            android:gravity="center"
+            android:background="@drawable/rectangle_dashgap"
+            android:letterSpacing="-0.05"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="있을까"
+            android:textColor="#373737"
+            android:gravity="center"
+            android:background="@drawable/rectangle_dashgap"
+            android:letterSpacing="-0.05"
+            android:layout_marginBottom="15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:padding="15dp"
+        android:background="#E4E4DF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact\n홍익대학교 컴퓨터공학과\n대표: 장희주\ntell: 010-nnnn-nnnn\ne-mail: abcd@hongik.ac.kr "
+            android:textColor="#373737"
+            android:letterSpacing="-0.05"/>
+
+    </LinearLayout>
+
+</LinearLayout>
