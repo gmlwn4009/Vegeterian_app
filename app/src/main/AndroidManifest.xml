@@ -19,6 +19,15 @@
         <activity android:name=".news_and_guide.news_and_guide_Activity">
 
         </activity>
+        <activity android:name=".search.SearchActivity">
+
+        </activity>
+        <activity android:name=".setting.SettingActivity">
+
+        </activity>
+        <activity android:name=".barcode.BarcodeActivity">
+
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
