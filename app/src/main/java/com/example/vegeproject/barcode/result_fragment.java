@@ -12,7 +12,8 @@ import androidx.fragment.app.Fragment;
 import com.example.vegeproject.R;
 
 public class result_fragment extends Fragment {
-public  result_fragment(){
+
+    public  result_fragment(){
 
 }
 
