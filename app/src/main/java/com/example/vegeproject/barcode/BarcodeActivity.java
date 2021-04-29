@@ -60,6 +60,8 @@ public class BarcodeActivity extends AppCompatActivity {
             }
         });
 
+//        String url1 = "https://apis.data.go.kr/B553748/CertImgListService/getCertImgListService?ServiceKey=kVYcCisbHyjiLHSoknw1iZbhenW6Glc2mM4hfGf1EeIHjXagq6P9g98eMXs6lFGtlksA74tis6Z677Ol%2FjiHrw%3D%3D&prdlstReportNo=201704760012";
+//        new food_info_getXML().execute(url1);
 //        String url2 = "https://openapi.foodsafetykorea.go.kr/api/792583e106f84aa688f1/C005/xml/0/1/BAR_CD=8809549135325";
 //        new Barcode_getXML().execute(url2);
     }
