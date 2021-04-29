@@ -34,7 +34,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="NEWS TITLE"
-                    android:textAppearance="?attr/textAppearanceHeadline6"></TextView>
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:letterSpacing="-0.02"></TextView>
 
                 <TextView
                     android:id="@+id/subtitle_view"
@@ -43,7 +44,8 @@
                     android:layout_marginTop="8dp"
                     android:text="repoter name"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"></TextView>
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:letterSpacing="-0.02"></TextView>
 
                 <TextView
                     android:id="@+id/email_view"
@@ -52,7 +54,8 @@
                     android:layout_marginTop="16dp"
                     android:text="this is vegan news"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"></TextView>
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:letterSpacing="-0.02"></TextView>
             </LinearLayout>
 
         </LinearLayout>

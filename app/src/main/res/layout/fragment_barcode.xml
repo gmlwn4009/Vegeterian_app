@@ -95,7 +95,7 @@
                     android:id="@+id/imageView22"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    app:srcCompat="@drawable/lacto" />//단계icon
+                    app:srcCompat="@drawable/level_lacto" />//단계icon
                 <LinearLayout
                     android:layout_margin="5dp"
                     android:layout_width="match_parent"

@@ -1,42 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:background="@color/ivory">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:weightSum="2">
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="search" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginBottom="5dp">
+            <LinearLayout
+                android:id="@+id/btnSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:orientation="vertical"
+                android:background="@drawable/rectangle_dashgap">
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_main1"
+                    android:scaleType="centerCrop"
+                    android:layout_weight="1"
+                    app:riv_corner_radius_top_left="10dp"
+                    app:riv_corner_radius_top_right="10dp"
+                    android:padding="1dp"/>
+                <TextView
+                    android:text="검색 | Search"
+                    android:textColor="#373737"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:letterSpacing="-0.05"/>
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="barcode" />
+            <LinearLayout
+                android:id="@+id/btnBarcode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical"
+                android:background="@drawable/rectangle_dashgap">
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_main2"
+                    android:scaleType="centerCrop"
+                    android:layout_weight="1"
+                    app:riv_corner_radius_top_left="10dp"
+                    app:riv_corner_radius_top_right="10dp"
+                    android:padding="1dp"/>
+                <TextView
+                    android:text="바코드 | Barcode"
+                    android:textColor="#373737"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:letterSpacing="-0.05"/>
+            </LinearLayout>
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="news_guide" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp">
+            <LinearLayout
+                android:id="@+id/btnGuide"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:orientation="vertical"
+                android:background="@drawable/rectangle_dashgap">
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_main3"
+                    android:scaleType="centerCrop"
+                    android:layout_weight="1"
+                    app:riv_corner_radius_top_left="10dp"
+                    app:riv_corner_radius_top_right="10dp"
+                    android:padding="1dp"/>
+                <TextView
+                    android:text="가이드 | Guide"
+                    android:textColor="#373737"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:letterSpacing="-0.05"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/btnSetting"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical"
+                android:background="@drawable/rectangle_dashgap">
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_main4"
+                    android:scaleType="centerCrop"
+                    android:layout_weight="1"
+                    app:riv_corner_radius_top_left="10dp"
+                    app:riv_corner_radius_top_right="10dp"
+                    android:padding="1dp"/>
+                <TextView
+                    android:text="설정 | Setting"
+                    android:textColor="#373737"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:letterSpacing="-0.05"/>
+            </LinearLayout>
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="setting" />
+
+
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

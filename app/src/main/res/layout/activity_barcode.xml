@@ -16,13 +16,15 @@
          android:id="@+id/btn1"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:text="바코드 인식하기" />
+         android:text="바코드 인식하기"
+         android:letterSpacing="-0.05" />
 
      <Button
          android:id="@+id/btn2"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:text="재인식 하기" />
+         android:text="재인식 하기"
+         android:letterSpacing="-0.05" />
      <FrameLayout
          android:id="@+id/frame"
          android:layout_width="match_parent"

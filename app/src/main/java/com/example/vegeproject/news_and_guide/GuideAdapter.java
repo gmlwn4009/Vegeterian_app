@@ -36,7 +36,7 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
         public TextView mTitle, subTitle;
         public TextView mContent;
         public ImageView imageView1, imageView2;
-        public Button button;
+        public LinearLayout btnSearch;
 
         public ViewHolder(View v) {
             super(v);
@@ -46,7 +46,7 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
             mContent = (TextView) v.findViewById(R.id.content_view);
             imageView1 = (ImageView) v.findViewById(R.id.imageView1);
             imageView2 = (ImageView) v.findViewById(R.id.image_view2);
-            button = (Button) v.findViewById(R.id.button1);
+            btnSearch = v.findViewById(R.id.btnSearch);
         }
 
         public void setItem(guide_item item){
