@@ -36,7 +36,7 @@ public class NewsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         for (int i=1; i<10; i++) {
-            adapter.addItem("title" + i, "heeju", "this is news space");
+            adapter.addItem("title" + i, "heeju", "this is news space");  //차례로 변수 대입하면 화면에 뜸
         }
         return root;
     }

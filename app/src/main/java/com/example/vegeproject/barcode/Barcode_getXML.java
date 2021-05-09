@@ -12,7 +12,14 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-class Barcode_getXML extends AsyncTask<String, Void, String> {
+public class Barcode_getXML extends AsyncTask<String, Void, String> {
+
+    public interface BarcodeResponse {
+        void processFinish(String output);
+    }
+
+    public BarcodeResponse delegate = null;
+
     protected String doInBackground(String... urls) {
         try {
             String name = " ";
@@ -58,8 +65,7 @@ class Barcode_getXML extends AsyncTask<String, Void, String> {
                 eventType = parser.next();
             }
             stream.close();
-
-            return name+" "+number;
+            return number;
         } catch (IOException e) {
             e.printStackTrace();
             return "IOException error";
@@ -68,8 +74,9 @@ class Barcode_getXML extends AsyncTask<String, Void, String> {
         }
     }
 
-    protected void onPostExecute(String s) {
-        Log.e("string",s);
+    protected void onPostExecute(String output) {
+        Log.e("string",output);
+        delegate.processFinish(output);
     }
 
     private InputStream downloadUrl(String urlString) throws IOException {
@@ -83,4 +90,5 @@ class Barcode_getXML extends AsyncTask<String, Void, String> {
         conn.connect();
         return conn.getInputStream();
     }
+
 }

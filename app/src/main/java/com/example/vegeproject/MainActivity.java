@@ -56,12 +56,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-//        FragmentTransaction transactions = getSupportFragmentManager().beginTransaction();
-//        settingFragment = new setting_fragment();
-//        transactions.replace(R.id.container, settingFragment);
-//        transactions.addToBackStack(null);  //back키 누르면 다시 액티비티로 돌아오도록 설정
-//        transactions.commit();
     }
 }

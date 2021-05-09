@@ -12,21 +12,30 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class food_info_getXML extends AsyncTask<String, Void, String> {
+public class Food_info_getXML extends AsyncTask<String, Void, String> {
+
+    public interface FoodResponse {
+        void processFinish(String output);
+    }
+
+    public FoodResponse delegate = null;
 
     protected String doInBackground(String... urls) {
         try {
-            String name = " ";
-            String number = " ";
+            String PrdlstNm = " ";
+            String Prdkind = " ";
             String Allergy = " ";
+            String Rawmtrl = " ";
+            String Imgurl1 = " ";
+            String Capacity = " ";
             String text = null;
 
-            Boolean prdistReportNo = Boolean.FALSE;
-            Boolean prdistNm = Boolean.FALSE;
+            Boolean prdkind = Boolean.FALSE;
+            Boolean prdlstNm = Boolean.FALSE;
             Boolean rawmtrl = Boolean.FALSE;
             Boolean allergy = Boolean.FALSE;
             Boolean imgurl1 = Boolean.FALSE;
-            Boolean imgurl2 = Boolean.FALSE;
+            Boolean capacity = Boolean.FALSE;
 
             InputStream stream = downloadUrl(urls[0]);
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
@@ -42,26 +51,44 @@ public class food_info_getXML extends AsyncTask<String, Void, String> {
                     case XmlPullParser.END_DOCUMENT:
                         break;
                     case XmlPullParser.START_TAG:
-                        if(parser.getName().equals("prdistNM"))
-                            prdistNm=Boolean.TRUE;
-                        else if(parser.getName().equals("prdistReportNo"))
-                            prdistReportNo = Boolean.TRUE;
+                        if(parser.getName().equals("prdlstNm"))
+                            prdlstNm=Boolean.TRUE;
+                        else if(parser.getName().equals("rawmtrl"))
+                            rawmtrl = Boolean.TRUE;
                         else if(parser.getName().equals("allergy"))
                             allergy = Boolean.TRUE;
+                        else if(parser.getName().equals("prdkind"))
+                            prdkind = Boolean.TRUE;
+                        else if(parser.getName().equals("capacity"))
+                            capacity = Boolean.TRUE;
+                        else if(parser.getName().equals("imgurl1"))
+                            imgurl1 = Boolean.TRUE;
                         break;
                     case XmlPullParser.TEXT:
                         text=parser.getText();
-                        if(prdistNm) {
-                            name = parser.getText();
-                            prdistNm =Boolean.FALSE;
+                        if(prdlstNm) {
+                            PrdlstNm = parser.getText();
+                            prdlstNm =Boolean.FALSE;
                         }
-                        else if(prdistReportNo) {
-                            number = parser.getText();
-                            prdistReportNo =Boolean.FALSE;
+                        else if(rawmtrl) {
+                            Rawmtrl = parser.getText();
+                            rawmtrl =Boolean.FALSE;
                         }
                         else if(allergy) {
                             Allergy = parser.getText();
                             allergy =Boolean.FALSE;
+                        }
+                        else if(prdkind) {
+                            Prdkind = parser.getText();
+                            prdkind =Boolean.FALSE;
+                        }
+                        else if(capacity) {
+                            Capacity = parser.getText();
+                            capacity =Boolean.FALSE;
+                        }
+                        else if(imgurl1) {
+                            Imgurl1 = parser.getText();
+                            imgurl1 =Boolean.FALSE;
                         }
                         break;
                     case XmlPullParser.END_TAG:
@@ -72,7 +99,7 @@ public class food_info_getXML extends AsyncTask<String, Void, String> {
             }
             stream.close();
 
-            return name+" and "+number+" and "+Allergy;
+            return PrdlstNm + "*" + Rawmtrl + "*" + Allergy + "*" + Prdkind + "*" + Capacity + "*" + Imgurl1;
         } catch (IOException e) {
             e.printStackTrace();
             return "IOException error";
@@ -81,8 +108,9 @@ public class food_info_getXML extends AsyncTask<String, Void, String> {
         }
     }
 
-    protected void onPostExecute(String s) {
-        Log.e("string",s);
+    protected void onPostExecute(String output) {
+        Log.e("string",output);
+        delegate.processFinish(output);
     }
 
     private InputStream downloadUrl(String urlString) throws IOException {

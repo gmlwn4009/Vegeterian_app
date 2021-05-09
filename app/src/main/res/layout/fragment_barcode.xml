@@ -19,50 +19,56 @@
             tools:context=".Scan">
 
             <LinearLayout
-                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/rectangle_dashgap"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="10dp">
+
                 <ImageView
                     android:id="@+id/productimage"
-                    android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/productsample" />
-                <LinearLayout
                     android:layout_margin="5dp"
+                    app:srcCompat="@drawable/productsample" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="5dp"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/productname"
-                        android:layout_margin="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/scdream5"
-                        android:text="매일 두유 99.89"
-                        android:textSize="20dp"
-                        android:textColor="@color/black"
-                        android:textAlignment="center"
+                        android:layout_margin="5dp"
                         android:background="@drawable/highlight"
-                        android:gravity="center_horizontal" />
+                        android:fontFamily="@font/scdream5"
+                        android:gravity="center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="매일 두유 99.89"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
                     <TextView
                         android:id="@+id/productintro"
-                        android:layout_margin="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:fontFamily="@font/scdream5"
-                        android:text="#두유 #매일두유 #설탕무첨가"
-                        android:textSize="15dp"
+                        android:text="#두유 #매일두유"
                         android:textAlignment="center"
-                        android:layout_gravity="center"/>
-                </LinearLayout>//제품명과 제품설명 레이어
+                        android:textSize="15dp" />
+                </LinearLayout>
+                //제품명과 제품설명 레이어
 
-            </LinearLayout>//제품정보 레이어
-
+            </LinearLayout>
+            //제품정보 레이어
 
 
             <LinearLayout
@@ -70,103 +76,104 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/rectangle_dashgap"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:id="@+id/veganlevel"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:layout_margin="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/scdream8"
-                        android:background="@drawable/highlight"
-                        android:text="'락토'단계까지 먹을 수 있어요!"
-                        android:textSize="26dp"
-                        android:textColor="@color/black"/>
-                </LinearLayout>
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/veganlevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/highlight"
+                    android:fontFamily="@font/scdream8"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="'락토'단계까지 먹을 수 있어요!"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
 
                 <ImageView
-                    android:layout_margin="5dp"
                     android:id="@+id/imageView22"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    app:srcCompat="@drawable/level_lacto" />//단계icon
-                <LinearLayout
                     android:layout_margin="5dp"
+                    app:srcCompat="@drawable/level_lacto" />//단계icon
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:layout_margin="5dp"
                     android:orientation="horizontal">
+
                     <TextView
                         android:id="@+id/flexi"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="1.플렉시테리언"
-                        android:fontFamily="@font/scdream5"
                         android:layout_gravity="center"
-                        android:textAlignment="center"
-                        android:paddingTop="10dp"
+                        android:layout_weight="1"
                         android:background="@drawable/rectangle_level"
-                        />
+                        android:fontFamily="@font/scdream5"
+                        android:paddingTop="10dp"
+                        android:text="1.플렉시테리언"
+                        android:textAlignment="center" />
+
                     <TextView
                         android:id="@+id/semi"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="2.세미"
-                        android:fontFamily="@font/scdream5"
                         android:layout_gravity="center"
-                        android:textAlignment="center"
-                        android:paddingTop="10dp"
+                        android:layout_weight="1"
                         android:background="@drawable/rectangle_level"
-                        />
+                        android:fontFamily="@font/scdream5"
+                        android:paddingTop="10dp"
+                        android:text="2.세미"
+                        android:textAlignment="center" />
+
                     <TextView
                         android:id="@+id/pesco"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="3.페스코"
-                        android:fontFamily="@font/scdream5"
                         android:layout_gravity="center"
-                        android:textAlignment="center"
-                        android:paddingTop="10dp"
+                        android:layout_weight="1"
                         android:background="@drawable/rectangle_level"
-                        />
+                        android:fontFamily="@font/scdream5"
+                        android:paddingTop="10dp"
+                        android:text="3.페스코"
+                        android:textAlignment="center" />
                 </LinearLayout>
+
                 <LinearLayout
-                    android:layout_margin="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:layout_margin="5dp"
                     android:orientation="horizontal">
+
                     <TextView
                         android:id="@+id/lactoov"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/scdream5"
-                        android:text="4.락토오보"
                         android:layout_gravity="center"
-                        android:textAlignment="center"
-                        android:paddingTop="10dp"
+                        android:layout_weight="1"
                         android:background="@drawable/rectangle_level"
-                        />
+                        android:fontFamily="@font/scdream5"
+                        android:paddingTop="10dp"
+                        android:text="4.락토오보"
+                        android:textAlignment="center" />
+
                     <TextView
                         android:id="@+id/lacto"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="5.락토"
-                        android:fontFamily="@font/scdream5"
                         android:layout_gravity="center"
-                        android:textAlignment="center"
-                        android:paddingTop="10dp"
+                        android:layout_weight="1"
                         android:background="@drawable/rectangle_level"
-                        />
+                        android:fontFamily="@font/scdream5"
+                        android:paddingTop="10dp"
+                        android:text="5.락토"
+                        android:textAlignment="center" />
 
                     <TextView
                         android:id="@+id/vegan"
@@ -176,8 +183,8 @@
                         android:layout_weight="1"
                         android:background="@drawable/rectangle_level"
                         android:backgroundTint="#ABB19E"
-                        android:paddingTop="10dp"
                         android:fontFamily="@font/scdream5"
+                        android:paddingTop="10dp"
                         android:text="6.비건"
                         android:textAlignment="center"
                         android:textAllCaps="true" />
@@ -185,39 +192,42 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_margin="10dp"
-                android:orientation="vertical"
-                android:background="@drawable/rectangle_dashgap"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/rectangle_dashgap"
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/components"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
                         android:background="@drawable/highlight"
                         android:fontFamily="@font/scdream8"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
                         android:text="성분"
-                        android:textSize="30dp"
                         android:textColor="@color/black"
-                        />
+                        android:textSize="30dp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="180dp"
                         android:layout_weight="2">
+
                         <ImageView
                             android:id="@+id/compo1"
                             android:layout_width="171dp"
@@ -228,6 +238,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.461"
                             app:srcCompat="@drawable/component_circle" />
+
                         <ImageView
                             android:id="@+id/compo2"
                             android:layout_width="94dp"
@@ -239,6 +250,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1.0"
                             app:srcCompat="@drawable/component_circle" />
+
                         <ImageView
                             android:id="@+id/compo3"
                             android:layout_width="81dp"
@@ -250,6 +262,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.16"
                             app:srcCompat="@drawable/component_circle" />
+
                         <ImageView
                             android:id="@+id/compo4"
                             android:layout_width="62dp"
@@ -261,6 +274,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.939"
                             app:srcCompat="@drawable/component_circle" />
+
                         <ImageView
                             android:id="@+id/compo5"
                             android:layout_width="52dp"
@@ -272,90 +286,97 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/component_circle" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
+
                     <Button
                         android:id="@+id/co1"
-                        android:layout_gravity="center"
                         android:layout_width="370dp"
                         android:layout_height="wrap_content"
-                        android:text="성분1"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/scdream3"
+                        android:text="성분1"
                         android:textColor="@color/black"
                         app:backgroundTint="#ffffff" />
+
                     <Button
                         android:id="@+id/co2"
+                        android:layout_width="370dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_width="370dp"
-                        android:text="성분2"
                         android:fontFamily="@font/scdream3"
+                        android:text="성분2"
                         android:textColor="@color/black"
                         app:backgroundTint="#ffffff" />
+
                     <Button
                         android:id="@+id/co3"
-                        android:layout_gravity="center"
                         android:layout_width="370dp"
                         android:layout_height="wrap_content"
-                        android:text="성분3"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/scdream3"
+                        android:text="성분3"
                         android:textColor="@color/black"
                         app:backgroundTint="#ffffff" />
+
                     <Button
                         android:id="@+id/co4"
-                        android:layout_gravity="center"
                         android:layout_width="370dp"
                         android:layout_height="wrap_content"
-                        android:text="성분4"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/scdream3"
+                        android:text="성분4"
                         android:textColor="@color/black"
                         app:backgroundTint="#ffffff" />
+
                     <Button
                         android:id="@+id/co5"
-                        android:layout_gravity="center"
                         android:layout_width="370dp"
                         android:layout_height="wrap_content"
-                        android:text="성분5"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/scdream3"
+                        android:text="성분5"
                         android:textColor="@color/black"
                         app:backgroundTint="#ffffff" />
+
                     <Button
                         android:id="@+id/co6"
-                        android:layout_gravity="center"
                         android:layout_width="370dp"
                         android:layout_height="wrap_content"
-                        android:text="성분6"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/scdream3"
+                        android:text="성분6"
                         android:textColor="@color/black"
                         app:backgroundTint="#ffffff" />
+
                     <Button
                         android:id="@+id/co7"
-                        android:layout_gravity="center"
                         android:layout_width="370dp"
                         android:layout_height="wrap_content"
-                        android:text="성분7"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/scdream3"
+                        android:text="성분7"
                         android:textColor="@color/black"
                         app:backgroundTint="#ffffff" />
+
                     <Button
                         android:id="@+id/co8"
-                        android:layout_gravity="center"
                         android:layout_width="370dp"
                         android:layout_height="wrap_content"
-                        android:text="성분8"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/scdream3"
+                        android:text="성분8"
                         android:textColor="@color/black"
                         app:backgroundTint="#ffffff" />
+
                     <Button
                         android:id="@+id/co9"
-                        android:layout_gravity="center"
                         android:layout_width="370dp"
                         android:layout_height="wrap_content"
-                        android:text="성분9"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/scdream3"
+                        android:text="성분9"
                         android:textColor="@color/black"
                         app:backgroundTint="#ffffff" />
                 </LinearLayout>
-
-
 
 
             </LinearLayout>
