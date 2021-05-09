@@ -78,7 +78,6 @@ public class BarcodeActivity extends AppCompatActivity implements Barcode_getXML
 
             Bundle bundle = new Bundle();
             bundle.putString("output",output);
-
             fragment.setArguments(bundle);
             i--;
         }
