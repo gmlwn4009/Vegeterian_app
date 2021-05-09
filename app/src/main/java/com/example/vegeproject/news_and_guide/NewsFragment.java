@@ -1,6 +1,8 @@
 package com.example.vegeproject.news_and_guide;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vegeproject.R;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class NewsFragment extends Fragment {
@@ -20,7 +30,9 @@ public class NewsFragment extends Fragment {
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
 
-    private ArrayList<news_item> itemArrayList;
+    private ArrayList<news_item> itemArrayList=null;
+    news_item news=null;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,10 +47,126 @@ public class NewsFragment extends Fragment {
         NewsAdapter adapter = new NewsAdapter();
         recyclerView.setAdapter(adapter);
 
-        for (int i=1; i<10; i++) {
-            adapter.addItem("title" + i, "heeju", "this is news space");  //차례로 변수 대입하면 화면에 뜸
-        }
+        //news_getXML실행하는 코드
+        news_getXML myAsyncTask = new news_getXML();
+        myAsyncTask.execute();
+
+
+
+   /*     for (int i=1; i<10; i++) {
+            adapter.addItem("title" + i, "heeju", "this is news space");
+        }*/
         return root;
+    }
+
+
+
+    public class news_getXML extends AsyncTask<String, Void, String> {
+        //asynctask<doinbackground 파라미터타입&excute메소드 인자값,doinbackground진행단위의 타입&onprogressUpdate파라미터타입,doInBackground리턴값&onPostExecute파라미터타입>
+
+        @Override
+        protected String doInBackground(String... urls) {
+
+
+            try {
+
+                boolean titleTag=false;
+                boolean companyTag=false;
+                boolean pubDateTag=false;
+
+                URL url= new URL("https://news.google.com/search?q=비건&hl=ko&gl=KR&ceid=KR%3Ako/");
+                InputStream in= url.openStream();
+
+
+                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+                XmlPullParser parser = factory.newPullParser();
+                parser.setInput(in, "UTF-8");
+
+                String tag;//태그를담을 승트링
+                String text=null;//태그 속 내용을 담을 스트링
+                String title=" ";//제목담을 스트링
+                String company=" ";//언론사 담을스틀ㅇ
+                String pubDate=" ";//발행일자 담을ㅅㅌㄹ
+
+                int eventType =parser.getEventType();
+
+                while (eventType !=XmlPullParser.END_DOCUMENT) {//xml문서의 끝인가요?
+                    switch (eventType) {
+
+                        case XmlPullParser.START_DOCUMENT://파일시작?
+                            itemArrayList = new ArrayList<news_item>();
+                            break;
+
+                        case XmlPullParser.END_DOCUMENT://파일끝?
+                            break;
+
+                        case XmlPullParser.END_TAG://태그 끝나묜
+                            if(parser.getName().equals("item")&&news != null) {
+                                itemArrayList.add(news);
+                            }
+                            break;
+
+                        case XmlPullParser.START_TAG://태그시작!
+                            if (parser.getName().equals("item")){//시작태그가 item일경우
+                                news = new news_item();
+                            }
+                            if (parser.getName().equals("title"))//시작태그가 title일때,,,
+                                titleTag = true;//titleTag값을 true로!
+                            else if (parser.getName().equals("soruce"))//시작태그가 source일때
+                                companyTag = true;//companytag값을 true로
+                            else if (parser.getName().equals("pubDate"))//시작태그가 pubDate일때
+                                pubDateTag = true;//pubDate값을 true로
+                            break;
+
+                        case XmlPullParser.TEXT:
+                            if (titleTag) {
+                                news.setTitle(parser.getText());
+                                titleTag = false;
+                            }
+                            else if(companyTag){
+                                news.setCompany(parser.getText());
+                                companyTag=false;
+                            }
+                            else if(pubDateTag){
+                                news.setPubDate(parser.getText());
+                                pubDateTag=false;
+                            }
+                            break;
+                    }
+                    eventType = parser.next();
+                }
+                in.close();
+            }catch (IOException e) {//에러1
+                e.printStackTrace();
+                return "IOException error";
+            } catch (XmlPullParserException e) {//에러2
+                return "XmlPullParserException error";
+            }
+
+            return null;
+        }
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            //어댑터연결
+
+            /*NewsAdapter adapter = new NewsAdapter(this,itemArrayList);
+            recyclerView.setAdapter(adapter);
+
+             */
+        }
+
+        private InputStream downloadUrl(String urlString) throws IOException {
+            URL url = new URL(urlString);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setReadTimeout(10000 /* milliseconds */);
+            conn.setConnectTimeout(15000 /* milliseconds */);
+            conn.setRequestMethod("GET");
+            conn.setDoInput(true);
+            // Starts the query
+            conn.connect();
+            return conn.getInputStream();
+        }
     }
 
 }

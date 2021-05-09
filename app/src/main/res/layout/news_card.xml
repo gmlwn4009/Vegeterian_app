@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/link_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp">
@@ -38,21 +39,21 @@
                     android:letterSpacing="-0.02"></TextView>
 
                 <TextView
-                    android:id="@+id/subtitle_view"
+                    android:id="@+id/company_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="repoter name"
+                    android:text="newspaper company name"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary"
                     android:letterSpacing="-0.02"></TextView>
 
                 <TextView
-                    android:id="@+id/email_view"
+                    android:id="@+id/pubDate_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="this is vegan news"
+                    android:text="When it published"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary"
                     android:letterSpacing="-0.02"></TextView>

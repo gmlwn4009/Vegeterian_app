@@ -16,12 +16,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     private ArrayList<news_item> items = new ArrayList<news_item>();
 
-    public void addItem(String title, String name, String email){
+    public void addItem(String title, String company, String pubDate){
         news_item item = new news_item();
 
         item.setTitle(title);
-        item.setName(name);
-        item.setEmail(email);
+        item.setCompany(company);
+        //item.setLink(link);
+        item.setPubDate(pubDate);
 
         items.add(item);
     }
@@ -29,22 +30,25 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // 사용될 항목들 선언
         public TextView mTitle;
-        public TextView mname;
-        public TextView mEmail;
+        public TextView mcompany;
+        public TextView mlink;
+        public TextView mpubDate;
         public ImageView mPhoto;
 
         public ViewHolder(View v) {
             super(v);
 
             mTitle = (TextView) v.findViewById(R.id.title_view);
-            mname = (TextView) v.findViewById(R.id.subtitle_view);
-            mEmail = (TextView) v.findViewById(R.id.email_view);
+            mcompany=(TextView) v.findViewById(R.id.company_view);
+            //mlink = (TextView) v.findViewById(R.id.link_view);
+            mpubDate = (TextView) v.findViewById(R.id.pubDate_view);
         }
 
         public void setItem(news_item item){
             mTitle.setText(item.getTitle());
-            mname.setText(item.getName());
-            mEmail.setText(item.getEmail());
+            mcompany.setText(item.getCompany());
+            //mlink.setText(item.getLink());
+            mpubDate.setText(item.getPubDate());
         }
     }
 
