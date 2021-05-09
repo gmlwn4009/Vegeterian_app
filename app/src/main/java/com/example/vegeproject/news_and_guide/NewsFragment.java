@@ -44,13 +44,13 @@ public class NewsFragment extends Fragment {
         recyclerView = root.findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
+/*
         NewsAdapter adapter = new NewsAdapter();
         recyclerView.setAdapter(adapter);
-
+*/
         //news_getXML실행하는 코드
         news_getXML myAsyncTask = new news_getXML();
         myAsyncTask.execute();
-
 
 
    /*     for (int i=1; i<10; i++) {
@@ -148,12 +148,11 @@ public class NewsFragment extends Fragment {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
 
-            //어댑터연결
 
-            /*NewsAdapter adapter = new NewsAdapter(this,itemArrayList);
+            //어댑터연결
+            NewsAdapter adapter = new NewsAdapter(getActivity(),itemArrayList);
             recyclerView.setAdapter(adapter);
 
-             */
         }
 
         private InputStream downloadUrl(String urlString) throws IOException {

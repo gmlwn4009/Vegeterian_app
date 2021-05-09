@@ -1,5 +1,6 @@
 package com.example.vegeproject.news_and_guide;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,14 @@ import java.util.ArrayList;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     private ArrayList<news_item> items = new ArrayList<news_item>();
+    private LayoutInflater mInflate;
+    private Context mContext;
+
+    public NewsAdapter(Context context, ArrayList<news_item> itm){
+        this.items = itm;
+        this.mInflate = LayoutInflater.from(context);
+        this.mContext = context;
+    }
 
     public void addItem(String title, String company, String pubDate){
         news_item item = new news_item();
