@@ -51,11 +51,9 @@ public class NewsFragment extends Fragment {
         news_getXML myAsyncTask = new news_getXML();
         myAsyncTask.execute();
 
-
-
-   /*     for (int i=1; i<10; i++) {
-            adapter.addItem("title" + i, "heeju", "this is news space");
-        }*/
+//        for (int i=1; i<10; i++) {
+//            adapter.addItem("title" + i, "heeju", "this is news space");
+//        }
         return root;
     }
 
@@ -74,7 +72,7 @@ public class NewsFragment extends Fragment {
                 boolean companyTag=false;
                 boolean pubDateTag=false;
 
-                URL url= new URL("https://news.google.com/search?q=비건&hl=ko&gl=KR&ceid=KR%3Ako/");
+                URL url= new URL("https://news.google.com/rss/search?q=%EB%B9%84%EA%B1%B4&hl=ko&gl=KR&ceid=KR:ko");
                 InputStream in= url.openStream();
 
 
@@ -120,15 +118,19 @@ public class NewsFragment extends Fragment {
 
                         case XmlPullParser.TEXT:
                             if (titleTag) {
-                                news.setTitle(parser.getText());
+//                                news.setTitle(parser.getText());
+                                Log.e("title",parser.getText());
+                                title = parser.getText();
                                 titleTag = false;
                             }
                             else if(companyTag){
-                                news.setCompany(parser.getText());
+//                                news.setCompany(parser.getText());
+                                Log.e("tag",parser.getText());
                                 companyTag=false;
                             }
                             else if(pubDateTag){
-                                news.setPubDate(parser.getText());
+//                                news.setPubDate(parser.getText());
+                                Log.e("news",parser.getText());
                                 pubDateTag=false;
                             }
                             break;
@@ -136,18 +138,23 @@ public class NewsFragment extends Fragment {
                     eventType = parser.next();
                 }
                 in.close();
+
+                return title;
             }catch (IOException e) {//에러1
                 e.printStackTrace();
                 return "IOException error";
             } catch (XmlPullParserException e) {//에러2
                 return "XmlPullParserException error";
             }
-
-            return null;
         }
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
 
+            itemArrayList = new ArrayList<>();
+
+            NewsAdapter adapter = new NewsAdapter();
+            recyclerView.setAdapter(adapter);
+            adapter.addItem("title:" + s, "heeju", "this is news space");
             //어댑터연결
 
             /*NewsAdapter adapter = new NewsAdapter(this,itemArrayList);

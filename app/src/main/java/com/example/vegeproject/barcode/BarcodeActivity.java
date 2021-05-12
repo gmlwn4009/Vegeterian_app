@@ -81,6 +81,6 @@ public class BarcodeActivity extends AppCompatActivity implements Barcode_getXML
             fragment.setArguments(bundle);
             i--;
         }
-        Log.e("process string",output + "\ni=" + (int)i);
+        Log.e("process string",output);
     }
 }
