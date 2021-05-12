@@ -1,11 +1,13 @@
 package com.example.vegeproject.news_and_guide;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vegeproject.R;
@@ -15,6 +17,16 @@ import java.util.ArrayList;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     private ArrayList<news_item> items = new ArrayList<news_item>();
+    private LayoutInflater mInflate;
+    private Context mContext;
+
+//    public NewsAdapter(){};
+
+    public NewsAdapter(Context context, ArrayList<news_item> i){
+        this.items = i;
+        this.mInflate = LayoutInflater.from(context);
+        this.mContext = context;
+    }
 
     public void addItem(String title, String company, String pubDate){
         news_item item = new news_item();
@@ -63,9 +75,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        news_item item = items.get(position);
-        holder.setItem(item);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+//        news_item item = items.get(position);
+//        holder.setItem(item);
+        holder.mTitle.setText(items.get(position).title);
+        holder.mcompany.setText(items.get(position).company);
+        holder.mpubDate.setText(items.get(position).pubDate);
     }
 
     @Override
