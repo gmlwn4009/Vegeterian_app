@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "497022145717",
+    "firebase_url": "https://vegeproject-7e016-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "vegeproject-7e016",
+    "storage_bucket": "vegeproject-7e016.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497022145717:android:db534ebabb9d74200f9afc",
+        "android_client_info": {
+          "package_name": "com.example.vegeproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497022145717-vvpkbf8flc4otqt2eq7qnc7125tsb823.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByMy_WqRMja6nWs3N_wcy1ILpkMKTI0io"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "497022145717-vvpkbf8flc4otqt2eq7qnc7125tsb823.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
