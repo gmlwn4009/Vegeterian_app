@@ -7,12 +7,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import com.example.vegeproject.R;
+
+import java.util.StringTokenizer;
 
 public class BarcodeActivity extends AppCompatActivity implements Barcode_getXML.BarcodeResponse, Food_info_getXML.FoodResponse {
 
@@ -26,10 +35,12 @@ public class BarcodeActivity extends AppCompatActivity implements Barcode_getXML
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barcode);
 
-        Scan = new IntentIntegrator(this);
-        Scan.setOrientationLocked(false);//폰 방향대로 가로세로모드변경
-        Scan.setPrompt("바코드를 카메라 중앙에 맞춰주세요.");
-        Scan.initiateScan();
+        result_fragment fragment = new result_fragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.barcode_activity, fragment).commit();
+//        Scan = new IntentIntegrator(this);
+//        Scan.setOrientationLocked(false);//폰 방향대로 가로세로모드변경
+//        Scan.setPrompt("바코드를 카메라 중앙에 맞춰주세요.");
+//        Scan.initiateScan();
 
     }
 
@@ -65,11 +76,24 @@ public class BarcodeActivity extends AppCompatActivity implements Barcode_getXML
     public void processFinish(String output) {
         // i==0일 때 barcode XML로 부터 품목번호 받아온 뒤 food_XML url에 대입
         if(i==0) {
-            food_info_getXML.delegate = this;
-            String foodUrl = "http://apis.data.go.kr/B553748/CertImgListService/getCertImgListService?ServiceKey=kVYcCisbHyjiLHSoknw1iZbhenW6Glc2mM4hfGf1EeIHjXagq6P9g98eMXs6lFGtlksA74tis6Z677Ol%2FjiHrw%3D%3D&prdlstReportNo=" +
-                    output;
-            food_info_getXML.execute(foodUrl);
-            i++;
+//            food_info_getXML.delegate = this;
+//            String foodUrl = "http://apis.data.go.kr/B553748/CertImgListService/getCertImgListService?ServiceKey=kVYcCisbHyjiLHSoknw1iZbhenW6Glc2mM4hfGf1EeIHjXagq6P9g98eMXs6lFGtlksA74tis6Z677Ol%2FjiHrw%3D%3D&prdlstReportNo=" +
+//                    output;
+//            food_info_getXML.execute(foodUrl);
+//            i++;
+
+            StringTokenizer arr = new StringTokenizer(output, "*");
+            String[] attr = new String[6];
+            for(int i=0;arr.hasMoreTokens();i++){
+                attr[i] = arr.nextToken();
+                Log.e("arr",attr[i]);
+            }
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance("https://vegeproject-7e016-default-rtdb.asia-southeast1.firebasedatabase.app/");
+            DatabaseReference myRef = database.getReference("880123153416");
+
+            myRef.child("제품명").setValue("돈까스");
+            myRef.child("이미지").setValue("url::///");
         }
         // food_XML에서 받아온 정보 표시
         else{
