@@ -25,8 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SearchActivity extends AppCompatActivity {
 
-    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference databaseReference = firebaseDatabase.getReference();
+    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("list");
+    private FirebaseList firebaseList = new FirebaseList();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,30 +40,30 @@ public class SearchActivity extends AppCompatActivity {
                 TextView recentSearchItem = findViewById(R.id.recentSearchItem);
                 EditText editText = findViewById(R.id.editText);
 
-                String searchItem = editText.getText().toString();
-                recentSearchItem.setText(editText.getText()); // 최근검색목록인데 이건 나중에 구현
+                recentSearchItem.setText(editText.getText());
 
-                readFirebaseList(searchItem);
+                readFirebaseList(editText.getText().toString());
             }
         }) ;
 
     }
 
     private void readFirebaseList(String searchItem){
-        databaseReference.child("list").child("9106").addValueEventListener(new ValueEventListener() {
+
+        databaseReference.orderByChild("prdlstNm").equalTo(searchItem).addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
-                if(dataSnapshot.getValue(FirebaseList.class) != null){
-                    FirebaseList post = dataSnapshot.getValue(FirebaseList.class);
-                    Log.w("FireBaseData", "getData" + post.toString());
+                for(DataSnapshot data: dataSnapshot.getChildren()){
+                    firebaseList.prdlstNm = data.child("prdlstNm").getValue(String.class);
+                    firebaseList.allergy = data.child("allergy").getValue(String.class);
+                    firebaseList.barcode = data.child("barcode").getValue(String.class);
+                    Log.w("FirebaseData", firebaseList.prdlstNm + ", " + firebaseList.allergy + ", " + firebaseList.barcode);
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Getting Post failed, log a message
                 Log.w("FireBaseData", "loadPost:onCancelled", databaseError.toException());
             }
         });
