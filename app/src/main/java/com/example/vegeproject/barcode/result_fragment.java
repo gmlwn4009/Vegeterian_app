@@ -2,6 +2,7 @@ package com.example.vegeproject.barcode;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -15,37 +16,34 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.example.vegeproject.R;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class result_fragment extends Fragment {
 
     TextView productName;
+    TextView productintro;
     ImageView productImage;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_barcode,container,false);
-        Bundle bundle = getArguments();
-        String output = bundle.getString("output");
-
-        StringTokenizer arr = new StringTokenizer(output, "*");
-        String[] attr = new String[6];
-        for(int i=0;arr.hasMoreTokens();i++){
-            attr[i] = arr.nextToken();
-            Log.e("arr",attr[i]);
-        }
 
         productName = root.findViewById(R.id.productname);
-        productName.setText(attr[0]);
+        productintro = root.findViewById(R.id.productintro);
+        productImage = root.findViewById(R.id.productimage);
 
-//        byte[] decodedByteArray = Base64.decode(attr[3], Base64.NO_WRAP);
-//        Bitmap bitmap = BitmapFactory.decodeByteArray(decodedByteArray,0,attr[3].length());
-//        Log.e("bitmap",String.valueOf(decodedByteArray));
-//        productImage = root.findViewById(R.id.productimage);
-//        productImage.setImageBitmap(bitmap);
+        String url = "http://fresh.haccp.or.kr/prdimg/1996/19960242067291/19960242067291-1.jpg";
+        Glide.with(this).load(url).into(productImage);
 
         return root;
     }
