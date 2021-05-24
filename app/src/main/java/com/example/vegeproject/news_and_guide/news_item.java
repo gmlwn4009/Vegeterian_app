@@ -12,7 +12,7 @@ public class news_item {
     public news_item(String title, String company, String link, String pubDate, String photo) {
         this.title = title;
         this.link = link;
-        this.company=company;
+        this.company = company;
         this.pubDate = pubDate;
         this.photo = photo;
     }
@@ -35,9 +35,7 @@ public class news_item {
         this.photo = photo;
     }
 
-    public String getLink() {
-        return link;
-    }
+    public String getLink() { return link; }
 
     public String getTitle() {
         return title;

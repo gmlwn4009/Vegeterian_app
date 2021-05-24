@@ -49,5 +49,6 @@ public class news_and_guide_Activity extends AppCompatActivity {
 
             }
         });
+
     }
 }
