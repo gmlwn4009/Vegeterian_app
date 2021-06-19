@@ -74,7 +74,8 @@ public class BarcodeActivity extends AppCompatActivity {
              else {
                 Toast.makeText(this, "바코드값: " + result.getContents(), Toast.LENGTH_LONG).show();
                 string=result.getContents();
-                readFirebaseList(string);
+                readFirebaseList(string);  //DB에 해당하는 바코드 검색
+                finish();
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);

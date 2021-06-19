@@ -3,7 +3,6 @@ package com.example.vegeproject.news_and_guide;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -31,6 +30,7 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
         items.add(item);
     }
 
+    // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // 사용될 항목들 선언
         public TextView mTitle, subTitle;
@@ -38,6 +38,7 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
         public ImageView imageView1, imageView2;
         public LinearLayout btnSearch;
 
+        // 뷰 객체 참조.
         public ViewHolder(View v) {
             super(v);
 
@@ -60,6 +61,7 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
 
     //뷰홀더
     // Create new views (invoked by the layout manager)
+    // viewType 형태의 아이템 뷰를 위한 뷰홀더 객체 생성
     @Override
     public explanation onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
@@ -68,6 +70,7 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
     }
 
     // Replace the contents of a view (invoked by the layout manager)
+    // position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
     public void onBindViewHolder(explanation holder, int position) {
         guide_item item = items.get(position);
@@ -81,11 +84,13 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
         holder.expandableLayout.setVisibility(isExpandable ? View.VISIBLE : View.GONE);
     }
 
+    // 전체 아이템 개수 리턴.
     @Override
     public int getItemCount() {
         return items.size();
     }
 
+    // 리사이클러뷰의 확장. 클릭 시 아래로 확장되면서 숨겨진 레이아웃이 나온다.
     public class explanation extends RecyclerView.ViewHolder {
 
         TextView title, subtitle, content;
@@ -105,6 +110,7 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
             linearLayout = itemView.findViewById(R.id.linear_layout);
             expandableLayout = itemView.findViewById(R.id.expandable_view1);
 
+            // 클릭 시 호출되는 메소드.
             linearLayout.setOnClickListener(new View.OnClickListener(){
 
                 @Override

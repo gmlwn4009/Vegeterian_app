@@ -12,4 +12,4 @@
  
  2)  result_fragment.java
  
- - BarcodeActivity에서 가공품의 영양정보들을 받아서 화면에 띄워주는 fragment이고 2학기에 개발할 예정이다.
+ - BarcodeActivity에서 가공품의 영양정보들을 받아서 화면에 띄워주는 fragment이다. 영양정보의 구분에 따라 채식 단계를 나타내주고 그 외 상품의 정보를 띄워줄 생각이다. 2학기에 개발할 예정이다.
