@@ -38,6 +38,8 @@ public class result_fragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_barcode,container,false);
 
+
+
         productName = root.findViewById(R.id.productname);
         productintro = root.findViewById(R.id.productintro);
         productImage = root.findViewById(R.id.productimage);
