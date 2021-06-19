@@ -38,10 +38,14 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TextView recentSearchItem = findViewById(R.id.recentSearchItem);
+
+                // 검색할 키워드 입력
                 EditText editText = findViewById(R.id.editText);
 
+                // 입력받은 키워드를 최근검색목록에 반영 → 아직은 1 아이템만 가능, 2학기에 누적되도록 구현 예정
                 recentSearchItem.setText(editText.getText());
 
+                // 입력값을 데이터베이스에서 검색하기 위한 함수 호출
                 readFirebaseList(editText.getText().toString());
             }
         }) ;
@@ -50,14 +54,19 @@ public class SearchActivity extends AppCompatActivity {
 
     private void readFirebaseList(String searchItem){
 
+        // 입력값과 데이터베이스의 prdlstNm값이 일치하는 경우
         databaseReference.orderByChild("prdlstNm").equalTo(searchItem).addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot data: dataSnapshot.getChildren()){
+
+                    // firebaseList 클래스에 prdlstNm, allergy, barcode 값을 저장
                     firebaseList.prdlstNm = data.child("prdlstNm").getValue(String.class);
                     firebaseList.allergy = data.child("allergy").getValue(String.class);
                     firebaseList.barcode = data.child("barcode").getValue(String.class);
+
+                    // 저장한 값을 로그로 확인
                     Log.w("FirebaseData", firebaseList.prdlstNm + ", " + firebaseList.allergy + ", " + firebaseList.barcode);
                 }
             }
