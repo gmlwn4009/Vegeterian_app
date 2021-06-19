@@ -1,0 +1,5 @@
+ 상품명을 통해 원하는 식품의 영양성분과 채식 단계를 알수 있게 해주는 디렉토리이다. 메인 화면에서 search 버튼을 누르면 띄워지는 화면이고, searchActivity를 먼저 실행한다.
+
+ 1) SearchActivity
+ 
+ 2) FirebaseList
