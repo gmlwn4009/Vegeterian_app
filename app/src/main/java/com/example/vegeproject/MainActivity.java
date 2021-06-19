@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnBarcode = findViewById(R.id.btnBarcode);//바코드
+        btnBarcode = findViewById(R.id.btnBarcode);
         btnBarcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

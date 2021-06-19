@@ -29,6 +29,7 @@ public class news_and_guide_Activity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int pos = tab.getPosition();
+                //첫번쨰 tab 선택 시 뉴스 화면, 두번째 tab 선택 시 가이드 화면
                 if(pos == 0){
                     newsFragment.setVisibility(View.VISIBLE);
                     guideFragment.setVisibility(View.INVISIBLE);

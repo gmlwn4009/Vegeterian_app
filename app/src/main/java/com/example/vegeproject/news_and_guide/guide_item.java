@@ -9,15 +9,6 @@ public class guide_item {
 
     public guide_item(){};
 
-    public guide_item(String title, String subtitle, String content, int photo1, int photo2) {
-        this.title = title;
-        this.subtitle = subtitle;
-        this.content = content;
-        this.photo1 = photo1;
-        this.photo2 = photo2;
-        this.expandable = false;
-    }
-
     public boolean isExpandable() {
         return expandable;
     }
