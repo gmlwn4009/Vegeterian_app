@@ -1,0 +1,15 @@
+ 채식과 관련된 뉴스정보들을 알려주고 채식에 대한 가이드를 알려주는 디렉토리이다. 메인 화면에서 News and Guide 버튼을 누르면 띄워지는 화면이고, news_and_guide_activity를 먼저 실행한다.
+
+1) news_and_guide_activity
+
+2) news_item
+
+3) NewsAdapter
+
+4) NewsFragment
+
+5) guide_item
+
+6) GuideAdapter
+
+7) GuideFragment
