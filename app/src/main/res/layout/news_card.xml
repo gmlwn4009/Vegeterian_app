@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--뉴스내용을 담을 카드뷰-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,64 +10,91 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp">
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:id="@+id/news_card"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            android:background="@drawable/background_half_gray">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@color/green_200"
-                tools:ignore="VectorDrawableCompat" />
-
+            <!--내용-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_height="match_parent"
+                android:layout_margin="25dp"
+                android:orientation="vertical">
 
+                <ImageView
+                    android:id="@+id/pushpin"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/icon_pushpin"
+                    tools:ignore="MissingConstraints" />
+
+                <!--제목-->
                 <TextView
                     android:id="@+id/title_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:letterSpacing="-0.03"
+                    android:lineSpacingExtra="-2dp"
+                    android:maxLines="2"
                     android:text="NEWS TITLE"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:letterSpacing="-0.02"></TextView>
+                    android:textColor="@color/black"
+                    android:textSize="18sp"></TextView>
 
-                <TextView
-                    android:id="@+id/company_view"
+                <!--신문사-->
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="newspaper company name"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:letterSpacing="-0.02"></TextView>
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
 
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/icon_face"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/company_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="-0.02"
+                        android:text="newspaper company name"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary"></TextView>
+
+                </LinearLayout>
+
+                <!--발행일자-->
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/icon_calendar"
+                        android:layout_gravity="center"/>
+
                     <TextView
                         android:id="@+id/pubDate_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:letterSpacing="-0.02"
                         android:text="When it published"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"
-                        android:letterSpacing="-0.02"></TextView>
-                    <TextView
-                        android:id="@+id/hidden_link"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                        android:textColor="?android:attr/textColorSecondary"></TextView>
+
                 </LinearLayout>
             </LinearLayout>
 
