@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.vegeproject.search.FirebaseList;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +26,7 @@ public class BarcodeActivity extends AppCompatActivity {
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("list");
     private FirebaseList firebaseList = new FirebaseList();
     private IntentIntegrator Scan;
+    result_fragment resultFragment = new result_fragment();
     static String string;
     int i=0;
 
@@ -60,25 +63,27 @@ public class BarcodeActivity extends AppCompatActivity {
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
         //바코드값 result에 받기
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 
         if(result != null) {
             //뒤로가기 시 바코드 종료 후 mainActivity로 돌아감
-            if(result.getContents() == null) {
+            if (result.getContents() == null) {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
                 finish();
             }
             //바코드 정보 입력성공 시
-             else {
+            else {
                 Toast.makeText(this, "바코드값: " + result.getContents(), Toast.LENGTH_LONG).show();
-                string=result.getContents();
-                readFirebaseList(string);  //DB에 해당하는 바코드 검색
-                finish();
+                string = result.getContents();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.add(R.id.barcode_activity, resultFragment);
+                transaction.commit();
+//                readFirebaseList(string);  //DB에 해당하는 바코드 검색
+//                finish();
             }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 

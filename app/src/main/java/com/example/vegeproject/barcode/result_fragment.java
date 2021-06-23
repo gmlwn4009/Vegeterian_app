@@ -42,8 +42,8 @@ public class result_fragment extends Fragment {
         productintro = root.findViewById(R.id.productintro);
         productImage = root.findViewById(R.id.productimage);
 
-        String url = "http://fresh.haccp.or.kr/prdimg/1996/19960242067291/19960242067291-1.jpg";
-        Glide.with(this).load(url).into(productImage);
+//        String url = "http://fresh.haccp.or.kr/prdimg/1996/19960242067291/19960242067291-1.jpg";
+//        Glide.with(this).load(url).into(productImage);
 
         return root;
     }
