@@ -1,5 +1,21 @@
 <resources>
-    <string name="app_name">VegeProject</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">MyBarcodeResult</string>
+    <string name="text_flexi">
+        <font color="#81b41a"><b>플렉시테리언</b></font><font color="#000000"> 단계까지 먹을 수 있어요!</font>
+    </string>
+    <string name="text_semi">
+        <font color="#81b41a"><b>세미</b></font><font color="#000000"> 단계까지 먹을 수 있어요!</font>
+    </string>
+    <string name="text_pesco">
+        <font color="#81b41a"><b>페스코</b></font><font color="#000000"> 단계까지 먹을 수 있어요!</font>
+    </string>
+    <string name="text_lactoovo">
+        <font color="#81b41a"><b>락토오보</b></font><font color="#000000"> 단계까지 먹을 수 있어요!</font>
+    </string>
+    <string name="text_lacto">
+        <font color="#81b41a"><b>락토</b></font><font color="#000000"> 단계까지 먹을 수 있어요!</font>
+    </string>
+    <string name="text_vegan">
+        <font color="#81b41a"><b>비건</b></font><font color="#000000"> 단계까지 먹을 수 있어요!</font>
+    </string>
 </resources>
