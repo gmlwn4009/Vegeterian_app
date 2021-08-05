@@ -1,131 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/ivory"
-    android:overScrollMode="never">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/logo" />
+
+    </LinearLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/rectangle_dashgap"
-            android:layout_margin="10dp"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:src="@drawable/icon_no_profile"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="o6o4_님, 안녕하세요."
-                    android:textColor="#373737"
-                    android:textSize="14sp"
-                    android:gravity="center"
-                    android:letterSpacing="-0.05"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="당신은 플렉시테리언이군요!"
-                    android:textColor="#373737"
-                    android:textSize="12sp"
-                    android:letterSpacing="-0.05"
-                    android:gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"/>
-
-                <ImageView
-                    android:src="@drawable/level_flexitarian"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingTop="15dp">
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:text="개인정보 수정"
-                android:textColor="#373737"
-                android:gravity="center"
-                android:background="@drawable/rectangle_dashgap"
-                android:letterSpacing="-0.05"
-                android:layout_marginBottom="15dp"/>
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:text="1:1 문의"
-                android:textColor="#373737"
-                android:gravity="center"
-                android:background="@drawable/rectangle_dashgap"
-                android:letterSpacing="-0.05"
-                android:layout_marginBottom="15dp"/>
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:text="또뭐가"
-                android:textColor="#373737"
-                android:gravity="center"
-                android:background="@drawable/rectangle_dashgap"
-                android:letterSpacing="-0.05"
-                android:layout_marginBottom="15dp"/>
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:text="있을까"
-                android:textColor="#373737"
-                android:gravity="center"
-                android:background="@drawable/rectangle_dashgap"
-                android:letterSpacing="-0.05"
-                android:layout_marginBottom="15dp"/>
-
-        </LinearLayout>
+        android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="15dp"
-            android:padding="15dp"
-            android:background="#E4E4DF">
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/rectangle_dashgap"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:src="@drawable/icon_no_profile"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="o6o4_님, 안녕하세요."
+                        android:textColor="#373737"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:letterSpacing="-0.05"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="당신은 플렉시테리언이군요!"
+                        android:textColor="#373737"
+                        android:textSize="12sp"
+                        android:letterSpacing="-0.05"
+                        android:gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"/>
+
+                    <ImageView
+                        android:src="@drawable/level_flexitarian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Contact\n홍익대학교 컴퓨터공학과\n대표: 장희주\ntell: 010-nnnn-nnnn\ne-mail: abcd@hongik.ac.kr "
-                android:textColor="#373737"
-                android:letterSpacing="-0.05"/>
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="15dp">
 
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:text="개인정보 수정"
+                    android:textColor="#373737"
+                    android:gravity="center"
+                    android:background="@drawable/rectangle_dashgap"
+                    android:letterSpacing="-0.05"
+                    android:layout_marginBottom="15dp"/>
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:text="1:1 문의"
+                    android:textColor="#373737"
+                    android:gravity="center"
+                    android:background="@drawable/rectangle_dashgap"
+                    android:letterSpacing="-0.05"
+                    android:layout_marginBottom="15dp"/>
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:text="또뭐가"
+                    android:textColor="#373737"
+                    android:gravity="center"
+                    android:background="@drawable/rectangle_dashgap"
+                    android:letterSpacing="-0.05"
+                    android:layout_marginBottom="15dp"/>
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:text="있을까"
+                    android:textColor="#373737"
+                    android:gravity="center"
+                    android:background="@drawable/rectangle_dashgap"
+                    android:letterSpacing="-0.05"
+                    android:layout_marginBottom="15dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:padding="15dp"
+                android:background="#E4E4DF">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact\n홍익대학교 컴퓨터공학과\n대표: 장희주\ntell: 010-nnnn-nnnn\ne-mail: abcd@hongik.ac.kr "
+                    android:textColor="#373737"
+                    android:letterSpacing="-0.05"/>
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>
