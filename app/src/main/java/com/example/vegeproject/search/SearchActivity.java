@@ -68,6 +68,12 @@ public class SearchActivity extends AppCompatActivity {
 
                     // 저장한 값을 로그로 확인
                     Log.w("FirebaseData", firebaseList.prdlstNm + ", " + firebaseList.allergy + ", " + firebaseList.barcode);
+
+                    // 알러지값 가공
+                    firebaseList.allergy = firebaseList.allergy.replaceAll(" ","").replaceAll("함유","").replaceAll("유래원재료","").replaceAll("\\*","").replaceAll("소고기", "쇠고기");;
+                    String[] allergies = firebaseList.allergy.split(",");
+                    for (int i=0; i<allergies.length; i++)
+                        Log.w("ArrayData", allergies[i]);
                 }
             }
 
