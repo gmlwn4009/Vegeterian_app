@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_marginTop="-10dp"
+                android:layout_marginTop="-5dp"
                 android:layout_marginBottom="10dp"
                 android:padding="8dp">
 
@@ -84,7 +84,7 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical">
 
@@ -100,7 +100,9 @@
                         android:textColor="@color/black"
                         android:textSize="18dp"
                         android:textScaleX="1.03"
-                        android:letterSpacing="-0.05"/>
+                        android:letterSpacing="-0.05"
+                        android:maxLines="1"
+                        android:ellipsize="end"/>
 
                     <TextView
                         android:id="@+id/productintro"
