@@ -92,7 +92,7 @@ public class SearchActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"세미",Toast.LENGTH_LONG).show();
                             break;
                         }
-                        else if(s.equals(nutrients[3])||s.equals(nutrients[4])||s.equals(nutrients[5])||s.equals(nutrients[6])) {//고등어,새우,게,조개류
+                        else if(s.equals(nutrients[3])||s.equals(nutrients[4])||s.equals(nutrients[5])||s.contains(nutrients[6])) {//고등어,새우,게,조개류
                             Toast.makeText(getApplicationContext(),"페스코",Toast.LENGTH_LONG).show();
                             System.out.println("페스코");
                             break;
