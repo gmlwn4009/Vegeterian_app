@@ -1,5 +1,6 @@
 package com.example.vegeproject.search;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,9 +15,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.vegeproject.MainActivity;
 import com.example.vegeproject.R;
+import com.example.vegeproject.barcode.result_fragment;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -74,6 +78,41 @@ public class SearchActivity extends AppCompatActivity {
                     String[] allergies = firebaseList.allergy.split(",");
                     for (int i=0; i<allergies.length; i++)
                         Log.w("ArrayData", allergies[i]);
+
+                    //단계별 구분
+                    String[] nutrients = {"돼지고기","소고기","닭고기","고등어","새우","게","조개류","난류","우유"};
+                    for(String s : allergies) {
+                        if(s.equals(nutrients[0])||s.equals(nutrients[1])) {//돼지고기,소고기
+                            System.out.println("플렉시테리언");
+                            Toast.makeText(getApplicationContext(),"플렉시테리언",Toast.LENGTH_LONG).show();
+                            break;
+                        }
+                        else if(s.equals(nutrients[2])) {//닭고기
+                            System.out.println("세미");
+                            Toast.makeText(getApplicationContext(),"세미",Toast.LENGTH_LONG).show();
+                            break;
+                        }
+                        else if(s.equals(nutrients[3])||s.equals(nutrients[4])||s.equals(nutrients[5])||s.equals(nutrients[6])) {//고등어,새우,게,조개류
+                            Toast.makeText(getApplicationContext(),"페스코",Toast.LENGTH_LONG).show();
+                            System.out.println("페스코");
+                            break;
+                        }
+                        else if(s.equals(nutrients[7])) {//난류
+                            Toast.makeText(getApplicationContext(),"락토오보",Toast.LENGTH_LONG).show();
+                            System.out.println("락토오보");
+                            break;
+                        }
+                        else if(s.equals(nutrients[8])) {//우유
+                            Toast.makeText(getApplicationContext(),"락토",Toast.LENGTH_LONG).show();
+                            System.out.println("락토");
+                            break;
+                        }
+                        else  {
+                            Toast.makeText(getApplicationContext(),"비건",Toast.LENGTH_LONG).show();
+                            System.out.println("비건");
+                        }
+                        break;
+                    }
                 }
             }
 
