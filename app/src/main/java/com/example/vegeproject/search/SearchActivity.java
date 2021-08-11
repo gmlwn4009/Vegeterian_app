@@ -27,6 +27,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Arrays;
+
 public class SearchActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("list");
@@ -80,39 +82,42 @@ public class SearchActivity extends AppCompatActivity {
                         Log.w("ArrayData", allergies[i]);
 
                     //단계별 구분
-                    String[] nutrients = {"돼지고기","소고기","닭고기","고등어","새우","게","조개류","난류","우유"};
+                    boolean [] b_list = new boolean[6];
+                    Arrays.fill(b_list,false);
+
+                    String[] began = {"플렉시테리언","세미","페스코","락토오보","락토","비건"};
+
                     for(String s : allergies) {
-                        if(s.equals(nutrients[0])||s.equals(nutrients[1])) {//돼지고기,소고기
-                            System.out.println("플렉시테리언");
-                            Toast.makeText(getApplicationContext(),"플렉시테리언",Toast.LENGTH_LONG).show();
-                            break;
-                        }
-                        else if(s.equals(nutrients[2])) {//닭고기
-                            System.out.println("세미");
-                            Toast.makeText(getApplicationContext(),"세미",Toast.LENGTH_LONG).show();
-                            break;
-                        }
-                        else if(s.equals(nutrients[3])||s.equals(nutrients[4])||s.equals(nutrients[5])||s.contains(nutrients[6])) {//고등어,새우,게,조개류
-                            Toast.makeText(getApplicationContext(),"페스코",Toast.LENGTH_LONG).show();
-                            System.out.println("페스코");
-                            break;
-                        }
-                        else if(s.equals(nutrients[7])) {//난류
-                            Toast.makeText(getApplicationContext(),"락토오보",Toast.LENGTH_LONG).show();
-                            System.out.println("락토오보");
-                            break;
-                        }
-                        else if(s.equals(nutrients[8])) {//우유
-                            Toast.makeText(getApplicationContext(),"락토",Toast.LENGTH_LONG).show();
-                            System.out.println("락토");
-                            break;
-                        }
-                        else  {
-                            Toast.makeText(getApplicationContext(),"비건",Toast.LENGTH_LONG).show();
-                            System.out.println("비건");
-                        }
-                        break;
+                        if(s.contains("돼지고기")||s.contains("소고기"))
+                            b_list[0] = true;
+                        else if(s.contains("닭고기"))
+                            b_list[1] = true;
+                        else if(s.contains("고등어")||s.contains("새우")||s.contains("게")||s.contains("조개류")||s.contains("오징어"))
+                            b_list[2] = true;
+                        else if(s.contains("난류")||s.contains("계란"))
+                            b_list[3] = true;
+                        else if(s.contains("우유"))
+                            b_list[4] = true;
+                        else if(s.contains("없음")||s.contains("N/A"))
+                            b_list[5] = true;
                     }
+                    /**
+                    for (int i=0; i<b_list.length; i++) {
+                        if(b_list[i])
+                        System.out.println("성분"+i);
+                    }
+                     **/
+                   for(int i =0 ; i<5;i++){
+                       if(b_list[i]){
+                           System.out.println(began[i]);
+                           break;
+                       }
+                   }
+                   if (b_list[5])
+                        System.out.println("알수없음");
+                   else if ((b_list[0] == false) && (b_list[1] ==false)  && (b_list[2] == false) && (b_list[3] == false) && (b_list[4] == false))
+                        System.out.println("비건 단계입니다.");
+
                 }
             }
 
