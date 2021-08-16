@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -29,14 +30,22 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Arrays;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends FragmentActivity {
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("list");
     private FirebaseList firebaseList = new FirebaseList();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_search);
+        setContentView(R.layout.activity_search);
+
+        //search fragment 생성
+        search_fragment sf = new search_fragment();
+
+        //fragment manager 선언 및 삽입
+        FragmentTransaction fragmentManager = getSupportFragmentManager().beginTransaction();
+        fragmentManager.add(R.id.fragment_container_search, sf);
+        fragmentManager.commit();
 
         ImageView searchButton = findViewById(R.id.searchButton) ;
 
@@ -53,6 +62,12 @@ public class SearchActivity extends AppCompatActivity {
 
                 // 입력값을 데이터베이스에서 검색하기 위한 함수 호출
                 readFirebaseList(editText.getText().toString());
+
+                //result fragment 생성 및 전환
+                result_fragment rf = new result_fragment();
+                FragmentTransaction fragmentManager = getSupportFragmentManager().beginTransaction();
+                fragmentManager.add(R.id.fragment_container_search, rf);
+                fragmentManager.commit();
             }
         }) ;
 
@@ -116,8 +131,7 @@ public class SearchActivity extends AppCompatActivity {
                    if (b_list[5])
                         System.out.println("알수없음");
                    else if ((b_list[0] == false) && (b_list[1] ==false)  && (b_list[2] == false) && (b_list[3] == false) && (b_list[4] == false))
-                        System.out.println("비건 단계입니다.");
-
+                        System.out.println("비건");
                 }
             }
 
