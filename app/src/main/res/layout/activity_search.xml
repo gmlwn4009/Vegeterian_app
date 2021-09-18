@@ -61,6 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="최근검색목록"
+
         android:letterSpacing="-0.05"
         android:layout_marginLeft="20dp"/>
 

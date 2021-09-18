@@ -1,18 +1,22 @@
 package com.example.vegeproject.search;
 
-public class FirebaseList {
+import java.io.Serializable;
+
+public class FirebaseData implements Serializable {
     public String prdlstNm;
     public String barcode;
     public String allergy;
+    public String imgUrl;
 
-    public FirebaseList() {
+    public FirebaseData() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public FirebaseList(String prdlstNm, String barcode, String allergy) {
+    public FirebaseData(String prdlstNm, String barcode, String allergy, String imgUrl) {
         this.prdlstNm = prdlstNm;
         this.barcode = barcode;
         this.allergy = allergy;
+        this.imgUrl = imgUrl;
     }
 
     public String getPrdlstNm() {
@@ -39,12 +43,21 @@ public class FirebaseList {
         this.allergy = allergy;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "prdlstNm='" + prdlstNm + '\'' +
                 ", barcode='" + barcode + '\'' +
                 ", allergy='" + allergy + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
                 '}';
     }
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:overScrollMode="never">
+
+    // 상품정보
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@drawable/rectangle_dashgap"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp">
+
+        // 상품사진
+        <ImageView
+            android:id="@+id/productimage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/productsample" />
+
+        // 상품명
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/productname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="매일 두유 99.89"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textScaleX="1.03"
+                android:letterSpacing="-0.05"
+                android:maxLines="2"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/productintro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:text="#두유 #매일두유"
+                android:textSize="14dp"
+                android:letterSpacing="-0.05"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

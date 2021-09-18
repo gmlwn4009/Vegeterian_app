@@ -7,10 +7,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.vegeproject.search.FirebaseList;
+import com.example.vegeproject.search.FirebaseData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +23,7 @@ import com.example.vegeproject.R;
 public class BarcodeActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("list");
-    private FirebaseList firebaseList = new FirebaseList();
+    private FirebaseData firebaseList = new FirebaseData();
     private IntentIntegrator Scan;
     result_fragment resultFragment = new result_fragment();
     static String string;

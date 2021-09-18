@@ -56,7 +56,7 @@
                     android:padding="1dp"/>
                 <TextView
                     android:text="검색 | Search"
-                    android:textColor="#373737"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_weight="0"
@@ -84,7 +84,7 @@
                     android:padding="1dp"/>
                 <TextView
                     android:text="바코드 | Barcode"
-                    android:textColor="#373737"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_weight="0"
@@ -118,7 +118,7 @@
                     android:padding="1dp"/>
                 <TextView
                     android:text="가이드 | Guide"
-                    android:textColor="#373737"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_weight="0"
@@ -145,7 +145,7 @@
                     android:padding="1dp"/>
                 <TextView
                     android:text="설정 | Setting"
-                    android:textColor="#373737"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_weight="0"
