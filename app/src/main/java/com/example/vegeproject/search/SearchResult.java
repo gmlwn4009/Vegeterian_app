@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.vegeproject.R;
 
 import java.util.ArrayList;
@@ -45,6 +44,9 @@ public class SearchResult extends AppCompatActivity {
             rvList.add(new RecyclerViewItem(fbList.get(i).prdlstNm, fbList.get(i).imgUrl));
         }
         searchAdapter.setArrayList(rvList);
+
+        // 아이템 클릭시 화면 전환
+        searchAdapter = new SearchAdapter(this, rvList);
 
     }
 

@@ -1,11 +1,7 @@
 package com.example.vegeproject.search;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,19 +14,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.vegeproject.R;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
 
     private ArrayList<RecyclerViewItem> arrayList;
     private Context context;
+
+    public SearchAdapter(){}
+
+    public SearchAdapter(Context context, ArrayList<RecyclerViewItem> arrayList) {
+        this.arrayList = arrayList;
+        this.context = context;
+    }
 
     public void setArrayList(ArrayList<RecyclerViewItem> arrayList){
         this.arrayList = arrayList;
@@ -40,9 +36,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     @Override
     public SearchAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_search_result, parent, false);
-
         context = parent.getContext();
-
         return new ViewHolder(view);
     }
 
@@ -66,6 +60,21 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             super(itemView);
             tv_name = itemView.findViewById(R.id.productname);
             iv_image = itemView.findViewById(R.id.productimage);
+
+            // 아이템 클릭시 화면 전환과 데이터 전달
+            itemView.setClickable(true);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION){
+                        Intent intent = new Intent(context, SearchResultClick.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.putExtra("prdlstNm", arrayList.get(pos).prdlstNm);
+                        intent.putExtra("imgUrl", arrayList.get(pos).imgUrl);
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
 
     }
