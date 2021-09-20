@@ -16,7 +16,6 @@ public class SearchResult extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private SearchAdapter searchAdapter;
-    private ArrayList<RecyclerViewItem> rvList;
     private ArrayList<FirebaseData> fbList;
 
     @Override
@@ -27,7 +26,7 @@ public class SearchResult extends AppCompatActivity {
         // 데이터 수신
         Intent intent = getIntent();
         fbList = (ArrayList<FirebaseData>)intent.getSerializableExtra("list");
-        for (int i=0; i<fbList.size(); i++)
+        for (int i=0; i<fbList.size(); i++) // 수신 확인
             System.out.println(i + ": " + fbList.get(i).prdlstNm+ " / " + fbList.get(i).allergy + " / " + fbList.get(i).barcode);
 
         // 어댑터 초기화
@@ -39,14 +38,10 @@ public class SearchResult extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // 어댑터에 데이터 적용
-        rvList = new ArrayList<>();
-        for(int i=0; i<fbList.size(); i++){
-            rvList.add(new RecyclerViewItem(fbList.get(i).prdlstNm, fbList.get(i).imgUrl));
-        }
-        searchAdapter.setArrayList(rvList);
+        searchAdapter.setArrayList(fbList);
 
         // 아이템 클릭시 화면 전환
-        searchAdapter = new SearchAdapter(this, rvList);
+        searchAdapter = new SearchAdapter(this, fbList);
 
     }
 

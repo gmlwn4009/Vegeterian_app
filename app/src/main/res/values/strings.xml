@@ -1,21 +1,9 @@
 <resources>
-    <string name="app_name">MyBarcodeResult</string>
-    <string name="text_flexi">
-        <font color="#81b41a"><b>플렉시테리언</b></font><font color="#000000"> 단계까지 먹을 수 있어요!</font>
-    </string>
-    <string name="text_semi">
-        <font color="#81b41a"><b>세미</b></font><font color="#000000"> 단계까지 먹을 수 있어요!</font>
-    </string>
-    <string name="text_pesco">
-        <font color="#81b41a"><b>페스코</b></font><font color="#000000"> 단계까지 먹을 수 있어요!</font>
-    </string>
-    <string name="text_lactoovo">
-        <font color="#81b41a"><b>락토오보</b></font><font color="#000000"> 단계까지 먹을 수 있어요!</font>
-    </string>
-    <string name="text_lacto">
-        <font color="#81b41a"><b>락토</b></font><font color="#000000"> 단계까지 먹을 수 있어요!</font>
-    </string>
-    <string name="text_vegan">
-        <font color="#81b41a"><b>비건</b></font><font color="#000000"> 단계까지 먹을 수 있어요!</font>
-    </string>
+    <string name="app_name">Veganning</string>
+    <string name="text0">플렉시테리언</string>
+    <string name="text1">세미</string>
+    <string name="text2">페스코</string>
+    <string name="text3">락토오보</string>
+    <string name="text4">락토</string>
+    <string name="text5">비건</string>
 </resources>

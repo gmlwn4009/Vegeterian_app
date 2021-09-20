@@ -18,17 +18,17 @@ import java.util.ArrayList;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
 
-    private ArrayList<RecyclerViewItem> arrayList;
+    private ArrayList<FirebaseData> arrayList;
     private Context context;
 
     public SearchAdapter(){}
 
-    public SearchAdapter(Context context, ArrayList<RecyclerViewItem> arrayList) {
+    public SearchAdapter(Context context, ArrayList<FirebaseData> arrayList) {
         this.arrayList = arrayList;
         this.context = context;
     }
 
-    public void setArrayList(ArrayList<RecyclerViewItem> arrayList){
+    public void setArrayList(ArrayList<FirebaseData> arrayList){
         this.arrayList = arrayList;
         notifyDataSetChanged();
     }
@@ -43,6 +43,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull SearchAdapter.ViewHolder holder, int position) {
         holder.tv_name.setText(arrayList.get(position).getPrdlstNm());
+        holder.tv_barcode.setText(arrayList.get(position).getBarcode());
+        holder.tv_allergy.setText(arrayList.get(position).getAllergy());
         Glide.with(context).load(arrayList.get(position).getImgUrl()).into(holder.iv_image);
     }
 
@@ -54,11 +56,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tv_name;
+        TextView tv_barcode;
+        TextView tv_allergy;
         ImageView iv_image;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_name = itemView.findViewById(R.id.productname);
+            tv_barcode = itemView.findViewById(R.id.productbarcode);
+            tv_allergy = itemView.findViewById(R.id.productallergy);
             iv_image = itemView.findViewById(R.id.productimage);
 
             // 아이템 클릭시 화면 전환과 데이터 전달
@@ -70,6 +76,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
                     if (pos != RecyclerView.NO_POSITION){
                         Intent intent = new Intent(context, SearchResultClick.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.putExtra("prdlstNm", arrayList.get(pos).prdlstNm);
+                        intent.putExtra("barcode", arrayList.get(pos).barcode);
+                        intent.putExtra("allergy", arrayList.get(pos).allergy);
                         intent.putExtra("imgUrl", arrayList.get(pos).imgUrl);
                         context.startActivity(intent);
                     }

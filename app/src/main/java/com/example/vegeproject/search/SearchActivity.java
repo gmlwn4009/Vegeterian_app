@@ -78,8 +78,8 @@ public class SearchActivity extends AppCompatActivity {
 
                     if (tempfb.contains(temp))
                         arrayList.add(new FirebaseData(data.child("prdlstNm").getValue(String.class),
-                                                       data.child("allergy").getValue(String.class),
                                                        data.child("barcode").getValue(String.class),
+                                                       data.child("allergy").getValue(String.class),
                                                        data.child("imgurl1").getValue(String.class)));
                 }
 

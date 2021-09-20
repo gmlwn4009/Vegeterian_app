@@ -128,23 +128,23 @@
                 android:layout_marginTop="10dp">
 
                 <TextView
-                    android:id="@+id/veganlevel"
+                    android:id="@+id/productlevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="@string/text_lacto"
+                    android:text="단계"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textScaleX="1.03"
                     android:letterSpacing="-0.07"/>
 
                 <ImageView
-                    android:id="@+id/imageView22"
+                    android:id="@+id/productlevelimage"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginTop="25dp"
-                    app:srcCompat="@drawable/level_lacto" />//단계icon
+                    app:srcCompat="@drawable/level4" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -153,12 +153,12 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/flexi"
+                        android:id="@+id/btn0"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_marginRight="5dp"
-                        android:background="@drawable/rectangle_level"
+                        android:background="@drawable/rectangle_level_gray"
                         android:gravity="center"
                         android:text="플렉시테리언"
                         android:textSize="12sp"
@@ -167,12 +167,12 @@
                         android:letterSpacing="-0.05"/>
 
                     <TextView
-                        android:id="@+id/semi"
+                        android:id="@+id/btn1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_marginRight="5dp"
-                        android:background="@drawable/rectangle_level"
+                        android:background="@drawable/rectangle_level_gray"
                         android:gravity="center"
                         android:text="세미"
                         android:textSize="12sp"
@@ -181,11 +181,11 @@
                         android:letterSpacing="-0.05"/>
 
                     <TextView
-                        android:id="@+id/pesco"
+                        android:id="@+id/btn2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@drawable/rectangle_level"
+                        android:background="@drawable/rectangle_level_gray"
                         android:gravity="center"
                         android:text="페스코"
                         android:textSize="12sp"
@@ -202,12 +202,12 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/lactoovo"
+                        android:id="@+id/btn3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_marginRight="5dp"
-                        android:background="@drawable/rectangle_level"
+                        android:background="@drawable/rectangle_level_gray"
                         android:gravity="center"
                         android:text="락토오보"
                         android:textSize="12sp"
@@ -216,12 +216,12 @@
                         android:letterSpacing="-0.05"/>
 
                     <TextView
-                        android:id="@+id/lacto"
+                        android:id="@+id/btn4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_marginRight="5dp"
-                        android:background="@drawable/rectangle_level"
+                        android:background="@drawable/rectangle_level_gray"
                         android:gravity="center"
                         android:text="락토"
                         android:textSize="12sp"
@@ -230,13 +230,12 @@
                         android:letterSpacing="-0.05"/>
 
                     <TextView
-                        android:id="@+id/vegan"
+                        android:id="@+id/btn5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:background="@drawable/rectangle_level"
-                        android:backgroundTint="#B3B3B3"
+                        android:background="@drawable/rectangle_level_gray"
                         android:gravity="center"
                         android:text="비건"
                         android:textSize="12sp"
@@ -262,7 +261,7 @@
                     android:gravity="center"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
-                    android:text="성분"
+                    android:text="주요 성분"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textScaleX="1.03"
@@ -271,7 +270,7 @@
                 // 성분 타원
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     // 성분 타원 첫 줄
@@ -281,31 +280,34 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/component1"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginRight="10dp"
                             android:background="@drawable/component_circle"
                             android:gravity="center"
-                            android:text="성분 1"
+                            android:text="--"
                             android:textColor="@color/black"
                             android:letterSpacing="-0.05"/>
 
                         <TextView
+                            android:id="@+id/component2"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginRight="10dp"
                             android:background="@drawable/component_circle"
                             android:gravity="center"
-                            android:text="성분 2"
+                            android:text="--"
                             android:textColor="@color/black"
                             android:letterSpacing="-0.05"/>
 
                         <TextView
+                            android:id="@+id/component3"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:background="@drawable/component_circle"
                             android:gravity="center"
-                            android:text="성분 3"
+                            android:text="--"
                             android:textColor="@color/black"
                             android:letterSpacing="-0.05"/>
 
@@ -318,32 +320,35 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/component4"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginRight="10dp"
                             android:background="@drawable/component_circle"
                             android:gravity="center"
-                            android:text="성분 4"
+                            android:text="--"
                             android:textColor="@color/black"
                             android:letterSpacing="-0.05"/>
 
                         <TextView
+                            android:id="@+id/component5"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginRight="10dp"
                             android:background="@drawable/component_circle"
                             android:gravity="center"
-                            android:text="성분 5"
+                            android:text="--"
                             android:textColor="@color/black"
                             android:letterSpacing="-0.05"/>
 
                         <TextView
+                            android:id="@+id/component6"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:background="@drawable/component_circle"
                             android:gravity="center"
                             android:letterSpacing="-0.05"
-                            android:text="성분 6"
+                            android:text="--"
                             android:textColor="@color/black" />
 
                     </LinearLayout>
@@ -353,7 +358,7 @@
                 // 성분 리스트
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="20dp">
 
@@ -364,11 +369,12 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/component7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="성분 1"
+                            android:text="--"
                             android:textColor="@color/black"
                             android:letterSpacing="-0.05"/>
 
@@ -386,11 +392,12 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/component8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="성분 2"
+                            android:text="--"
                             android:textColor="@color/black"
                             android:letterSpacing="-0.05"/>
 
@@ -408,77 +415,12 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/component9"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="성분 3"
-                            android:textColor="@color/black"
-                            android:letterSpacing="-0.05"/>
-
-                        <View
-                            android:layout_width="wrap_content"
-                            android:layout_height="0.3dp"
-                            android:background="#81b41a" />
-
-                    </LinearLayout>
-
-                    // 성분 4
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="성분 4"
-                            android:textColor="@color/black"
-                            android:letterSpacing="-0.05"/>
-
-                        <View
-                            android:layout_width="wrap_content"
-                            android:layout_height="0.3dp"
-                            android:background="#81b41a" />
-
-                    </LinearLayout>
-
-                    // 성분 5
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="성분 5"
-                            android:textColor="@color/black"
-                            android:letterSpacing="-0.05"/>
-
-                        <View
-                            android:layout_width="wrap_content"
-                            android:layout_height="0.3dp"
-                            android:background="#81b41a" />
-
-                    </LinearLayout>
-
-                    // 성분 6
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="성분 6"
+                            android:text="--"
                             android:textColor="@color/black"
                             android:letterSpacing="-0.05"/>
 

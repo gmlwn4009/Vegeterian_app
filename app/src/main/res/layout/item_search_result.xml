@@ -57,6 +57,18 @@
                 android:textSize="14dp"
                 android:letterSpacing="-0.05"/>
 
+            <TextView
+                android:id="@+id/productallergy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="0sp"/>
+
+            <TextView
+                android:id="@+id/productbarcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="0sp"/>
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
