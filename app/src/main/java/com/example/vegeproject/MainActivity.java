@@ -3,9 +3,9 @@ package com.example.vegeproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.vegeproject.barcode.BarcodeActivity;
 import com.example.vegeproject.news_and_guide.news_and_guide_Activity;
@@ -14,7 +14,7 @@ import com.example.vegeproject.setting.SettingActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout btnSearch, btnBarcode, btnGuide, btnSetting;
+    private ConstraintLayout btnSearch, btnBarcode, btnGuide, btnSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

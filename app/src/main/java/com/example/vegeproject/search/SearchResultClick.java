@@ -24,19 +24,18 @@ public class SearchResultClick extends AppCompatActivity {
         TextView productname = findViewById(R.id.productname);
         ImageView productimage = findViewById(R.id.productimage);
         TextView productlevel = findViewById(R.id.productlevel);
-        ImageView productlevelimage = findViewById(R.id.productlevelimage);
 
         // 데이터 수신, 상품 세팅
         Intent intent = getIntent();
         productname.setText(intent.getStringExtra("prdlstNm"));
         Glide.with(this).load(intent.getStringExtra("imgUrl")).into(productimage);
 
-        // 알러지값 가공
+        // 성분값 가공
         String allergy = intent.getStringExtra("allergy").replaceAll(" ","").replaceAll("함유","").replaceAll("유래원재료","").replaceAll("\\*","").replaceAll("소고기", "쇠고기");;
         String[] allergies = allergy.split(",");
 
-        // 알러지값 세팅
-        setTextView (allergies, allergies.length);
+        // 성분값 세팅
+        setComponent(allergies, allergies.length);
 
         // 단계 분류
         boolean[] contain = classifyLevel(allergies);
@@ -57,8 +56,8 @@ public class SearchResultClick extends AppCompatActivity {
 
     }
 
-    // 알러지값 세팅
-    private void setTextView(String[] allergies, int length) {
+    // 성분값 세팅
+    private void setComponent(String[] allergies, int length) {
         int i, resID;
         for (i = 0; i < length; i++) {
             resID = getResources().getIdentifier("component"+(i+1), "id", this.getPackageName());

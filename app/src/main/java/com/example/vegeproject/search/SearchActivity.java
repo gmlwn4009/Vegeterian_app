@@ -46,13 +46,12 @@ public class SearchActivity extends AppCompatActivity {
                 // 최근검색목록 update → 아직은 1 아이템만 가능, 2학기에 누적되도록 구현 예정
                 recentSearchItem.setText(editText.getText());
 
-                readFirebaseList(new MyCallback() {
+                readFirebaseData(new MyCallback() {
                     @Override
                     public void onCallback(ArrayList<FirebaseData> list) {
                         arrayList = list;
                         Intent intent = new Intent(getApplicationContext(), SearchResult.class);
-                        intent.putExtra("item", searchItem); // 데이터 송신
-                        intent.putExtra("list", arrayList);
+                        intent.putExtra("list", arrayList); // 데이터 송신
                         startActivity(intent);
                     }
                 });
@@ -61,7 +60,7 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
-    public void readFirebaseList(MyCallback myCallback){
+    public void readFirebaseData(MyCallback myCallback){
 
         arrayList.clear(); // 초기화
 
