@@ -1,6 +1,5 @@
-package com.example.vegeproject.search;
+package com.example.vegeproject.barcode;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -12,51 +11,59 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.vegeproject.R;
+import com.example.vegeproject.search.FirebaseData;
 
 import java.util.Arrays;
 
-public class SearchResultClick extends AppCompatActivity {
+public class BarcodeResult extends AppCompatActivity {
 
+    private FirebaseData firebaseData;
+
+    @Nullable
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        TextView productname = findViewById(R.id.productName);
-        ImageView productimage = findViewById(R.id.productImage);
-        TextView productlevel = findViewById(R.id.productLevel); // 알수없음 데이터 제거시 이 라인도 제거
+        TextView productName = findViewById(R.id.productName);
+        ImageView productImage = findViewById(R.id.productImage);
+        TextView productLevel = findViewById(R.id.productLevel);
 
-        // 데이터 수신, 상품 세팅
+        // 데이터 수신
         Intent intent = getIntent();
-        productname.setText(intent.getStringExtra("prdlstNm"));
-        Glide.with(this).load(intent.getStringExtra("imgUrl")).into(productimage);
+        firebaseData = (FirebaseData)intent.getSerializableExtra("data");
+        System.out.println(firebaseData.prdlstNm+ " / " + firebaseData.allergy + " / " + firebaseData.barcode);
+
+        productName.setText(firebaseData.getPrdlstNm());
+        Glide.with(this).load(firebaseData.getImgUrl()).into(productImage);
 
         // 성분값 가공
-        String allergy = intent.getStringExtra("allergy").replaceAll(" ","").replaceAll("함유","").replaceAll("유래원재료","").replaceAll("\\*","").replaceAll("소고기", "쇠고기");;
+        String allergy = firebaseData.allergy.replaceAll(" ","").replaceAll("함유","").replaceAll("유래원재료","").replaceAll("\\*","").replaceAll("소고기", "쇠고기");;
         String[] allergies = allergy.split(",");
+        for (int i=0; i<allergies.length; i++)
+            System.out.println(allergies[i]);
 
+        // 성분값 세팅
+        setComponent(allergies, allergies.length);
 
-    // 성분값 세팅
-    setComponent(allergies, allergies.length);
+        // 단계 분류
+        boolean[] contain = classifyLevel(allergies);
 
-    // 단계 분류
-    boolean[] contain = classifyLevel(allergies);
-
-    // 단계 세팅
+        // 단계 세팅
         for (int i = 0; i < 5;i++) {
-        if (contain[i]) {
-            setLevel(i);
-            break;
+            if (contain[i]) {
+                setLevel(i);
+                break;
+            }
         }
-    }
         if (contain[5]) {
-        productlevel.setText("알 수 없음");
-    }
+            productLevel.setText("알 수 없음");
+        }
         else if ((contain[0] == false) && (contain[1] ==false)  && (contain[2] == false) && (contain[3] == false) && (contain[4] == false)) {
-        setLevel(5);
-    }
+            setLevel(5);
+        }
 
-}
+    }
 
     // 성분값 세팅
     public void setComponent(String[] allergies, int length) {
@@ -109,4 +116,5 @@ public class SearchResultClick extends AppCompatActivity {
             btn.setBackgroundResource(colorID);
         }
     }
+
 }

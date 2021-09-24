@@ -62,10 +62,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_name = itemView.findViewById(R.id.productname);
-            tv_barcode = itemView.findViewById(R.id.productbarcode);
-            tv_allergy = itemView.findViewById(R.id.productallergy);
-            iv_image = itemView.findViewById(R.id.productimage);
+            tv_name = itemView.findViewById(R.id.productName);
+            tv_barcode = itemView.findViewById(R.id.productBarcode);
+            tv_allergy = itemView.findViewById(R.id.productAllergy);
+            iv_image = itemView.findViewById(R.id.productImage);
 
             // 아이템 클릭시 화면 전환과 데이터 전달
             itemView.setClickable(true);

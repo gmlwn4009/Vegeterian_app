@@ -17,7 +17,7 @@
 
         // 상품사진
         <ImageView
-            android:id="@+id/productimage"
+            android:id="@+id/productImage"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -32,7 +32,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/productname"
+                android:id="@+id/productName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -48,7 +48,7 @@
                 android:ellipsize="end"/>
 
             <TextView
-                android:id="@+id/productintro"
+                android:id="@+id/productIntro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -58,13 +58,13 @@
                 android:letterSpacing="-0.05"/>
 
             <TextView
-                android:id="@+id/productallergy"
+                android:id="@+id/productAllergy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="0sp"/>
 
             <TextView
-                android:id="@+id/productbarcode"
+                android:id="@+id/productBarcode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="0sp"/>
