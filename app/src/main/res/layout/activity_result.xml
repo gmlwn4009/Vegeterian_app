@@ -107,14 +107,16 @@
                         android:ellipsize="end"/>
 
                     <TextView
-                        android:id="@+id/productIntro"
+                        android:id="@+id/productKind"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_margin="5dp"
-                        android:text="#두유 #매일두유"
+                        android:text="#두유"
                         android:textSize="14dp"
-                        android:letterSpacing="-0.05"/>
+                        android:letterSpacing="-0.05"
+                        android:maxLines="1"
+                        android:ellipsize="end"/>
 
                 </LinearLayout>
 
@@ -278,7 +280,8 @@
                     // 성분 타원 첫 줄
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:gravity="center">
 
                         <TextView
@@ -318,7 +321,8 @@
                     // 성분 타원 둘째 줄
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:gravity="center">
 
                         <TextView
@@ -362,12 +366,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="20dp">
 
                     // 성분 1
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <TextView
@@ -381,6 +387,7 @@
                             android:letterSpacing="-0.05"/>
 
                         <View
+                            android:id="@+id/underline7"
                             android:layout_width="wrap_content"
                             android:layout_height="0.3dp"
                             android:background="#81b41a" />
@@ -390,7 +397,7 @@
                     // 성분 2
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <TextView
@@ -404,6 +411,7 @@
                             android:letterSpacing="-0.05"/>
 
                         <View
+                            android:id="@+id/underline8"
                             android:layout_width="wrap_content"
                             android:layout_height="0.3dp"
                             android:background="#81b41a" />
@@ -413,7 +421,7 @@
                     // 성분 3
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <TextView
@@ -427,6 +435,7 @@
                             android:letterSpacing="-0.05"/>
 
                         <View
+                            android:id="@+id/underline9"
                             android:layout_width="wrap_content"
                             android:layout_height="0.3dp"
                             android:background="#81b41a" />
@@ -436,7 +445,7 @@
                     // 성분 4
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <TextView
@@ -450,6 +459,7 @@
                             android:letterSpacing="-0.05"/>
 
                         <View
+                            android:id="@+id/underline10"
                             android:layout_width="wrap_content"
                             android:layout_height="0.3dp"
                             android:background="#81b41a" />

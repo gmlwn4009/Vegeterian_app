@@ -45,6 +45,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         holder.tv_name.setText(arrayList.get(position).getPrdlstNm());
         holder.tv_barcode.setText(arrayList.get(position).getBarcode());
         holder.tv_allergy.setText(arrayList.get(position).getAllergy());
+        holder.tv_kind.setText("#"+arrayList.get(position).getPrdKind());
         Glide.with(context).load(arrayList.get(position).getImgUrl()).into(holder.iv_image);
     }
 
@@ -58,6 +59,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         TextView tv_name;
         TextView tv_barcode;
         TextView tv_allergy;
+        TextView tv_kind;
         ImageView iv_image;
 
         public ViewHolder(@NonNull View itemView) {
@@ -65,6 +67,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             tv_name = itemView.findViewById(R.id.productName);
             tv_barcode = itemView.findViewById(R.id.productBarcode);
             tv_allergy = itemView.findViewById(R.id.productAllergy);
+            tv_kind = itemView.findViewById(R.id.productKind);
             iv_image = itemView.findViewById(R.id.productImage);
 
             // 아이템 클릭시 화면 전환과 데이터 전달
@@ -78,6 +81,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
                         intent.putExtra("prdlstNm", arrayList.get(pos).prdlstNm);
                         intent.putExtra("barcode", arrayList.get(pos).barcode);
                         intent.putExtra("allergy", arrayList.get(pos).allergy);
+                        intent.putExtra("prdKind", arrayList.get(pos).prdKind);
                         intent.putExtra("imgUrl", arrayList.get(pos).imgUrl);
                         context.startActivity(intent);
                     }

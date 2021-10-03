@@ -7,16 +7,18 @@ public class FirebaseData implements Serializable {
     public String barcode;
     public String allergy;
     public String imgUrl;
+    public String prdKind;
 
     public FirebaseData() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public FirebaseData(String prdlstNm, String barcode, String allergy, String imgUrl) {
+    public FirebaseData(String prdlstNm, String barcode, String allergy, String imgUrl, String prdKind) {
         this.prdlstNm = prdlstNm;
         this.barcode = barcode;
         this.allergy = allergy;
         this.imgUrl = imgUrl;
+        this.prdKind = prdKind;
     }
 
     public String getPrdlstNm() {
@@ -51,6 +53,14 @@ public class FirebaseData implements Serializable {
         this.imgUrl = imgUrl;
     }
 
+    public String getPrdKind() {
+        return prdKind;
+    }
+
+    public void setPrdKind(String prdKind) {
+        this.prdKind = prdKind;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -58,6 +68,7 @@ public class FirebaseData implements Serializable {
                 ", barcode='" + barcode + '\'' +
                 ", allergy='" + allergy + '\'' +
                 ", imgUrl='" + imgUrl + '\'' +
+                ", prdKind='" + prdKind + '\'' +
                 '}';
     }
 }

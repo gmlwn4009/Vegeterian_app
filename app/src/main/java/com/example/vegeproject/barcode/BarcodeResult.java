@@ -14,10 +14,14 @@ import com.example.vegeproject.R;
 import com.example.vegeproject.search.FirebaseData;
 
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BarcodeResult extends AppCompatActivity {
 
     private FirebaseData firebaseData;
+    private static final Pattern PATTERN_BRACKET = Pattern.compile("\\([^\\(\\)]+\\)");
+    private static final String VOID = "";
 
     @Nullable
     @Override
@@ -26,6 +30,7 @@ public class BarcodeResult extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         TextView productName = findViewById(R.id.productName);
+        TextView productkind = findViewById(R.id.productKind);
         ImageView productImage = findViewById(R.id.productImage);
         TextView productLevel = findViewById(R.id.productLevel);
 
@@ -35,44 +40,37 @@ public class BarcodeResult extends AppCompatActivity {
         System.out.println(firebaseData.prdlstNm+ " / " + firebaseData.allergy + " / " + firebaseData.barcode);
 
         productName.setText(firebaseData.getPrdlstNm());
+        productkind.setText("#"+intent.getStringExtra("prdKind"));
         Glide.with(this).load(firebaseData.getImgUrl()).into(productImage);
 
         // 성분값 가공
-        String allergy = firebaseData.allergy.replaceAll(" ","").replaceAll("함유","").replaceAll("유래원재료","").replaceAll("\\*","").replaceAll("소고기", "쇠고기");;
-        String[] allergies = allergy.split(",");
-        for (int i=0; i<allergies.length; i++)
-            System.out.println(allergies[i]);
-
-        // 성분값 세팅
-        setComponent(allergies, allergies.length);
+        String allergy = intent.getStringExtra("allergy").replaceAll(" ","")
+                .replaceAll("함유","")
+                .replaceAll("유래원재료","")
+                .replaceAll("\\*","")
+                .replaceAll("\\·이제품은원재료에알레르기유발물질인", "") // 팔도부대찌개라면
+                .replaceAll("을하고있습니다.", "") // 팔도부대찌개라면
+                .replaceAll("식품", "") // 묵은지돼지김치찌개
+                .replaceAll("※특정성분함량및원산지:후첨분말스프중닭고기0.62%", "") // 큰컵불닭볶음탕면
+                .replaceAll("날류", "난류") // CJ해물볶음밥
+                .replaceAll("조래규", "조개류") // 볶음진짬뽕
+                .replaceAll("소고기", "쇠고기");;
+        String[] allergies = deleteBracket(allergy).split(",");
 
         // 단계 분류
         boolean[] contain = classifyLevel(allergies);
 
+        // 성분값 세팅
+        setComponent(allergies, allergies.length);
+
         // 단계 세팅
-        for (int i = 0; i < 5;i++) {
-            if (contain[i]) {
-                setLevel(i);
-                break;
-            }
-        }
-        if (contain[5]) {
+        for (int i = 0; i < 5;i++)
+            if (contain[i]) { setLevel(i); break; }
+        if (contain[5])
             productLevel.setText("알 수 없음");
-        }
-        else if ((contain[0] == false) && (contain[1] ==false)  && (contain[2] == false) && (contain[3] == false) && (contain[4] == false)) {
+        else if ((contain[0] == false) && (contain[1] ==false)  && (contain[2] == false) && (contain[3] == false) && (contain[4] == false))
             setLevel(5);
-        }
 
-    }
-
-    // 성분값 세팅
-    public void setComponent(String[] allergies, int length) {
-        int i, resID;
-        for (i = 0; i < length; i++) {
-            resID = getResources().getIdentifier("component"+(i+1), "id", this.getPackageName());
-            TextView component = findViewById(resID);
-            component.setText(allergies[i]);
-        }
     }
 
     // 단계 분류
@@ -96,6 +94,16 @@ public class BarcodeResult extends AppCompatActivity {
         return b_list;
     }
 
+    // 성분값 세팅
+    public void setComponent(String[] allergies, int length) {
+        int i, resID;
+        for (i = 0; i < length; i++) {
+            resID = getResources().getIdentifier("component"+(i+1), "id", this.getPackageName());
+            TextView component = findViewById(resID);
+            component.setText(allergies[i]);
+        }
+    }
+
     // 단계 세팅
     public void setLevel(int level) {
         // 단계 이름
@@ -115,6 +123,22 @@ public class BarcodeResult extends AppCompatActivity {
             int colorID = getResources().getIdentifier("rectangle_level", "drawable", this.getPackageName());
             btn.setBackgroundResource(colorID);
         }
+    }
+
+    // 괄호와 괄호 내부 내용 모두 삭제
+    private static String deleteBracket(String text) {
+        Matcher matcher = PATTERN_BRACKET.matcher(text);
+        String pureText = text;
+        String removeTextArea = new String();
+
+        while(matcher.find()) {
+            int startIndex = matcher.start();
+            int endIndex = matcher.end();
+            removeTextArea = pureText.substring(startIndex, endIndex);
+            pureText = pureText.replace(removeTextArea, VOID);
+            matcher = PATTERN_BRACKET.matcher(pureText);
+        }
+        return pureText;
     }
 
 }

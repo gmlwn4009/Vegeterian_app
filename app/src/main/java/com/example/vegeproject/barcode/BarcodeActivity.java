@@ -76,7 +76,8 @@ public class BarcodeActivity extends AppCompatActivity {
                     firebaseData = new FirebaseData(data.child("prdlstNm").getValue(String.class),
                                                    data.child("barcode").getValue(String.class),
                                                    data.child("allergy").getValue(String.class),
-                                                   data.child("imgurl1").getValue(String.class));
+                                                   data.child("imgurl").getValue(String.class),
+                                                   data.child("prdkind").getValue(String.class));
                 }
                 myCallback.onCallback(firebaseData);
             }
