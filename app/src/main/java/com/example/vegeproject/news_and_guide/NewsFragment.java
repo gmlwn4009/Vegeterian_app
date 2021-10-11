@@ -113,19 +113,19 @@ public class NewsFragment extends Fragment {
                                     if (titleTag) {
                                         //if(parser.getText().equals("\"비건\" - Google 뉴스"))
                                         news.setTitle(parser.getText());
-                                        Log.e("title", parser.getText());
+                                        //Log.e("title", parser.getText());
                                         titleTag = false;
                                     } else if (companyTag) {
                                         news.setCompany(parser.getText());
-                                        Log.e("source",parser.getText());
+                                        //Log.e("source",parser.getText());
                                         companyTag = false;
                                     } else if (pubDateTag) {
                                         news.setPubDate(parser.getText());
-                                        Log.e("pubDate", parser.getText());
+                                        //Log.e("pubDate", parser.getText());
                                         pubDateTag = false;
                                     } else if (linkTag) {
                                         news.setLink(parser.getText());
-                                        Log.e("link", parser.getText());
+                                        //Log.e("link", parser.getText());
                                         linkTag = false;
                                     }
                                     break;
