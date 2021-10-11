@@ -72,6 +72,53 @@ public class SearchResultClick extends AppCompatActivity {
         boolean [] b_list = new boolean[6];
         Arrays.fill(b_list,false);
         for (String s : allergies) {
+            switch (s){
+                //플렉시테리언
+                case "돼지고기" :
+                    b_list[0] = true;
+                case "쇠고기" :
+                    b_list[0] = true;
+                    break;
+                //세미
+                case "닭고기" :
+                    b_list[1] = true;
+                    break;
+                //페스코
+                case "고등어" :
+                    b_list[2] = true;
+                case "새우" :
+                    b_list[2] = true;
+                case "게" :
+                    b_list[2] = true;
+                case "조개류" :
+                    b_list[2] = true;
+                case "오징어" :
+                    b_list[2] = true;
+                case "굴" :
+                    b_list[2] = true;
+                    break;
+                //락토오보
+                case "계란" :
+                    b_list[3] = true;
+                case "난류" :
+                    b_list[3]= true;
+                case "알류" :
+                    b_list[3] = true;
+                case "난황" :
+                    b_list[3] = true;
+                    break;
+                //락토
+                case "우유" :
+                    b_list[4] = true;
+                    break;
+                //데이터 오류
+                case "없음" :
+                    b_list[5] = true;
+                case "N/A" :
+                    b_list[5] = true;
+                    break;
+            }
+            /*
             if (s.contains("돼지고기")||s.contains("쇠고기"))
                 b_list[0] = true;
             else if (s.contains("닭고기"))
@@ -84,6 +131,8 @@ public class SearchResultClick extends AppCompatActivity {
                 b_list[4] = true;
             else if (s.contains("없음")||s.contains("N/A"))
                 b_list[5] = true;
+
+             */
         }
         return b_list;
     }
