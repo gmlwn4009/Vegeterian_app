@@ -42,6 +42,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull SearchAdapter.ViewHolder holder, int position) {
+        //SharedPreferences preferences = context.getSharedPreferences("pref",Activity.MODE_PRIVATE);
+        //String ox = preferences.getString("Pref_str",null);
+
         holder.tv_name.setText(arrayList.get(position).getPrdlstNm());
         holder.tv_barcode.setText(arrayList.get(position).getBarcode());
         holder.tv_allergy.setText(arrayList.get(position).getAllergy());
@@ -61,7 +64,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         TextView tv_allergy;
         TextView tv_kind;
         ImageView iv_image;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_name = itemView.findViewById(R.id.productName);
@@ -90,5 +92,4 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         }
 
     }
-
 }

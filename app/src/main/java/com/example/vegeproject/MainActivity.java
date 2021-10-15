@@ -1,8 +1,12 @@
 package com.example.vegeproject;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -56,5 +60,94 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnSearch.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                ConstraintLayout image = (ConstraintLayout) v;
+                float curX = event.getX();
+                float curY = event.getY();
+
+                switch (event.getAction()){
+                    //손가락 눌림
+                    case MotionEvent.ACTION_DOWN:{
+                        image.setAlpha((float) 0.8);
+                        return false;
+                    }
+                    //손가락 뗌
+                    case MotionEvent.ACTION_UP:{
+                        image.setAlpha(1);
+                        return false;
+                    }
+                    default: return false;
+                }
+            }
+        });
+        btnBarcode.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                ConstraintLayout image = (ConstraintLayout) v;
+                float curX = event.getX();
+                float curY = event.getY();
+
+                switch (event.getAction()){
+                    //손가락 눌림
+                    case MotionEvent.ACTION_DOWN:{
+                        image.setAlpha((float) 0.3);
+                        return false;
+                    }
+                    //손가락 뗌
+                    case MotionEvent.ACTION_UP:{
+                        image.setAlpha(1);
+                        return false;
+                    }
+                    default: return false;
+                }
+            }
+        });
+        btnSetting.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                ConstraintLayout image = (ConstraintLayout) v;
+                float curX = event.getX();
+                float curY = event.getY();
+
+                switch (event.getAction()){
+                    //손가락 눌림
+                    case MotionEvent.ACTION_DOWN:{
+                        image.setAlpha((float) 0.8);
+                        return false;
+                    }
+                    //손가락 뗌
+                    case MotionEvent.ACTION_UP:{
+                        image.setAlpha(1);
+                        return false;
+                    }
+                    default: return false;
+                }
+            }
+        });
+        btnGuide.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                ConstraintLayout image = (ConstraintLayout) v;
+                float curX = event.getX();
+                float curY = event.getY();
+
+                switch (event.getAction()){
+                    //손가락 눌림
+                    case MotionEvent.ACTION_DOWN:{
+                        image.setAlpha((float) 0.8);
+                        return false;
+                    }
+                    //손가락 뗌
+                    case MotionEvent.ACTION_UP:{
+                        image.setAlpha(1);
+                        return false;
+                    }
+                    default: return false;
+                }
+            }
+        });
+
     }
 }

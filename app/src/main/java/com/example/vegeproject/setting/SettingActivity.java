@@ -133,12 +133,6 @@ public class SettingActivity extends AppCompatActivity {
                 else{
 
                 }
-
-
         }
-
-
     }
-
-
 }
