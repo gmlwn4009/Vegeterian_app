@@ -31,6 +31,7 @@
         <activity android:name=".search.SearchResultClick"/>
         <activity android:name=".setting.SettingActivity"/>
         <activity android:name=".setting.SettingLevel"/>
+        <activity android:name=".setting.SettingNickname"/>
         <activity android:name=".barcode.BarcodeActivity"/>
         <activity android:name=".barcode.BarcodeResult"/>
 

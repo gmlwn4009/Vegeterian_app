@@ -54,6 +54,7 @@
                     android:layout_marginRight="10dp">
 
                     <TextView
+                        android:id="@+id/nickname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="o6o4_님, 안녕하세요."
@@ -100,16 +101,18 @@
                     android:background="@drawable/rectangle_dashgap"
                     android:gravity="center"
                     android:letterSpacing="-0.05"
-                    android:text="채식 단계 설정"                    android:textColor="@color/black" />
+                    android:text="채식 단계 설정"
+                    android:textColor="@color/black" />
 
                 <TextView
+                    android:id="@+id/change_nick"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/rectangle_dashgap"
                     android:gravity="center"
                     android:letterSpacing="-0.05"
-                    android:text="1:1 문의"
+                    android:text="닉네임 변경"
                     android:textColor="@color/black" />
 
                 <TextView
