@@ -47,6 +47,7 @@ public class SettingNickname extends AppCompatActivity {
             editNick.setHint("닉네임을 입력해주세요");
         else
             editNick.setHint(savedChangedData);
+            editNick.setText(savedChangedData);
 
         //설정 완료 버튼 클릭
         b.setOnClickListener(new View.OnClickListener() {

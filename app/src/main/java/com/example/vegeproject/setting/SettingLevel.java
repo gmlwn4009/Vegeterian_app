@@ -21,6 +21,7 @@ public class SettingLevel extends AppCompatActivity {
     SharedPreferences pref2;
     SharedPreferences.Editor editor2;
     String savedClickedData;
+    int level_nm;
 
 
     @Override
@@ -44,6 +45,7 @@ public class SettingLevel extends AppCompatActivity {
 
         //저장값 불러오기
         savedClickedData = pref2.getString("SAVE_CHECK_DATA","");
+        level_nm = pref2.getInt("SAVE_LEVEL_NUMBER",-1);
         //Log.e("savedClickedData",savedClickedData);
 
         //이전에 저장된값 보여주기
@@ -75,6 +77,8 @@ public class SettingLevel extends AppCompatActivity {
 
                int id = rg.getCheckedRadioButtonId();
                RadioButton rb = (RadioButton) findViewById(id);
+               level_nm=Math.abs(rg.indexOfChild(rb)-5);
+                Log.e("라디오 아이디","="+level_nm);
 
                //아무것도 선택 안되었을때
                if(rb == null){
@@ -87,6 +91,7 @@ public class SettingLevel extends AppCompatActivity {
                    data.putExtra("결과", rb.getText().toString());
                    savedClickedData = rb.getText().toString();
                    editor2.putString("SAVE_CHECK_DATA",savedClickedData);
+                   editor2.putInt("SAVE_LEVEL_NUMBER",level_nm);
                    editor2.apply();
 
                    setResult(RESULT_OK, data);

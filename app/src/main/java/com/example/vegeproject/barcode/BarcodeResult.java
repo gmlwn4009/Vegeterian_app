@@ -1,7 +1,9 @@
 package com.example.vegeproject.barcode;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.widget.ImageView;
 import android.widget.TextView;
