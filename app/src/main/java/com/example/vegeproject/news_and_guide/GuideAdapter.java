@@ -19,13 +19,13 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
 
     private ArrayList<guide_item> items = new ArrayList<guide_item>();
 
-    public void addItem(String title, String subtitle, String content, int image1, int image2){
+    public void addItem(String title, String subtitle, String content, int image2){
         guide_item item = new guide_item();
 
         item.setTitle(title);
         item.setContent(content);
         item.setSubtitle(subtitle);
-        item.setPhoto1(image1);
+//        item.setPhoto1(image1);
         item.setPhoto2(image2);
         items.add(item);
     }
@@ -45,7 +45,7 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
             mTitle = (TextView) v.findViewById(R.id.title_view);
             subTitle = (TextView) v.findViewById(R.id.subtitle_view);
             mContent = (TextView) v.findViewById(R.id.content_view);
-            imageView1 = (ImageView) v.findViewById(R.id.imageView1);
+//            imageView1 = (ImageView) v.findViewById(R.id.imageView1);
             imageView2 = (ImageView) v.findViewById(R.id.image_view2);
             btnSearch = v.findViewById(R.id.btnSearch);
         }
@@ -77,7 +77,7 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
         holder.title.setText(item.getTitle());
         holder.subtitle.setText(item.getSubtitle());
         holder.content.setText(item.getContent());
-        holder.photo1.setImageResource(item.getPhoto1());
+//        holder.photo1.setImageResource(item.getPhoto1());
         holder.photo2.setImageResource(item.getPhoto2());
 
         boolean isExpandable = items.get(position).isExpandable();
@@ -104,7 +104,7 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
             title = itemView.findViewById(R.id.title_view);
             subtitle = itemView.findViewById(R.id.subtitle_view);
             content = itemView.findViewById(R.id.content_view);
-            photo1 = itemView.findViewById(R.id.imageView1);
+//            photo1 = itemView.findViewById(R.id.imageView1);
             photo2 = itemView.findViewById(R.id.image_view2);
 
             linearLayout = itemView.findViewById(R.id.linear_layout);
