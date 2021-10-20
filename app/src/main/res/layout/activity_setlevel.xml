@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:gravity="center"
+            android:letterSpacing="-0.05"
+            android:text="단계를 설정해 주세요."
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            />
+
+        <RadioGroup
+            android:id="@+id/RadioGroup1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RadioButton
+                android:id="@+id/lev_began"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rectangle_dashgap"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:letterSpacing="-0.05"
+                android:text="비건"
+                android:textColor="@color/black"
+                />
+            <RadioButton
+                android:id="@+id/lev_lacto"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rectangle_dashgap"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:letterSpacing="-0.05"
+                android:text="락토"
+                android:textColor="@color/black"
+                />
+            <RadioButton
+                android:id="@+id/lev_lactovo"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rectangle_dashgap"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:letterSpacing="-0.05"
+                android:text="락토오보"
+                android:textColor="@color/black"
+                />
+            <RadioButton
+                android:id="@+id/lev_semi"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rectangle_dashgap"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:letterSpacing="-0.05"
+                android:text="세미"
+                android:textColor="@color/black"
+                />
+            <RadioButton
+                android:id="@+id/lev_pesco"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rectangle_dashgap"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:letterSpacing="-0.05"
+                android:text="페스코"
+                android:textColor="@color/black"
+                />
+            <RadioButton
+                android:id="@+id/lev_flexi"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rectangle_dashgap"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:letterSpacing="-0.05"
+                android:text="플렉시테리언"
+                android:textColor="@color/black"
+                />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/select_ok"
+            android:background="@drawable/ripple_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="15dp"
+            android:text="선택 완료"
+            />
+
+    </LinearLayout>
+</ScrollView>
