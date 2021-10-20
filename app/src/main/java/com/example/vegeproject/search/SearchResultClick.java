@@ -30,7 +30,6 @@ public class SearchResultClick extends AppCompatActivity {
         TextView productname = findViewById(R.id.productName);
         TextView productkind = findViewById(R.id.productKind);
         ImageView productimage = findViewById(R.id.productImage);
-        TextView productLevel = findViewById(R.id.productLevel); // 알수없음 데이터 제거시 이 라인도 제거
 
         // 데이터 수신, 상품 세팅
         Intent intent = getIntent();
@@ -39,8 +38,8 @@ public class SearchResultClick extends AppCompatActivity {
         Glide.with(this).load(intent.getStringExtra("imgUrl")).into(productimage);
 
         // 성분값 가공
-        String allergy = intent.getStringExtra("allergy").replaceAll(" ","");
-        String[] allergies = allergy.split(",");   //String[] allergies = deleteBracket(allergy).split(",");
+        String allergy = intent.getStringExtra("allergy");
+        String[] allergies = allergy.split(",");
 
         // 단계 분류
         boolean[] contain = classifyLevel(allergies);
@@ -49,13 +48,9 @@ public class SearchResultClick extends AppCompatActivity {
         setComponent(allergies, allergies.length);
 
         // 단계 세팅
-        for (int i = 0; i < 5;i++)
+        for (int i = 0; i < 6;i++)
             if (contain[i]) { setLevel(i); break; }
-        if (contain[5])
-            productLevel.setText("알 수 없음");
-        else if ((contain[0] == false) && (contain[1] ==false)  && (contain[2] == false) && (contain[3] == false) && (contain[4] == false))
-            setLevel(5);
-}
+    }
 
     // 단계 분류
     public boolean[] classifyLevel(String[] allergies) {
@@ -64,9 +59,7 @@ public class SearchResultClick extends AppCompatActivity {
         for (String s : allergies) {
             switch (s){
                 //플렉시테리언
-                case "돼지고기" :
-                    b_list[0] = true;
-                case "쇠고기" :
+                case "돼지고기" : case "쇠고기" :
                     b_list[0] = true;
                     break;
                 //세미
@@ -74,55 +67,22 @@ public class SearchResultClick extends AppCompatActivity {
                     b_list[1] = true;
                     break;
                 //페스코
-                case "고등어" :
-                    b_list[2] = true;
-                case "새우" :
-                    b_list[2] = true;
-                case "게" :
-                    b_list[2] = true;
-                case "조개류" :
-                    b_list[2] = true;
-                case "오징어" :
-                    b_list[2] = true;
-                case "굴" :
+                case "고등어" : case "새우" : case "게" : case "조개류" : case "오징어" : case "굴" :
                     b_list[2] = true;
                     break;
                 //락토오보
-                case "계란" :
-                    b_list[3] = true;
-                case "난류" :
-                    b_list[3]= true;
-                case "알류" :
-                    b_list[3] = true;
-                case "난황" :
+                case "계란" : case "난류" : case "알류" :
                     b_list[3] = true;
                     break;
                 //락토
                 case "우유" :
                     b_list[4] = true;
                     break;
-                //데이터 오류
-                case "없음" :
-                    b_list[5] = true;
-                case "N/A" :
+                //비건
+                default:
                     b_list[5] = true;
                     break;
             }
-            /*
-            if (s.contains("돼지고기")||s.contains("쇠고기"))
-                b_list[0] = true;
-            else if (s.contains("닭고기"))
-                b_list[1] = true;
-            else if (s.contains("고등어")||s.contains("새우")||s.contains("게")||s.contains("조개류")||s.contains("오징어")||s.contains("굴"))
-                b_list[2] = true;
-            else if (s.contains("난류")||s.contains("계란")||s.contains("알류")||s.contains("난황"))
-                b_list[3] = true;
-            else if (s.contains("우유"))
-                b_list[4] = true;
-            else if (s.contains("없음"))
-                b_list[5] = true;
-
-             */
         }
         return b_list;
     }
@@ -138,7 +98,7 @@ public class SearchResultClick extends AppCompatActivity {
             if (i < length)
                 component.setText(allergies[i]);
 
-            // 성분값 없는 레이아웃 제거
+                // 성분값 없는 레이아웃 제거
             else {
                 component.setVisibility(View.GONE);
                 if (i > 5) {
