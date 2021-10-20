@@ -66,7 +66,7 @@ public class NewsFragment extends Fragment {
                     boolean pubDateTag=false;
                     boolean linkTag=false;
 
-                    URL url= new URL("https://news.google.com/rss/search?q=%EB%B9%84%EA%B1%B4&hl=ko&gl=KR&ceid=KR:ko");
+                    URL url= new URL("https://news.google.com/rss/search?q=%EB%B9%84%EA%B1%B4%7C%EC%B1%84%EC%8B%9D&hl=ko&gl=KR&ceid=KR%3Ako");
                     InputStream in= url.openStream();
 
 

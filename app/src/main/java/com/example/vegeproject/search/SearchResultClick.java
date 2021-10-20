@@ -127,21 +127,6 @@ public class SearchResultClick extends AppCompatActivity {
                     b_list[5] = true;
                     break;
             }
-            /*
-            if (s.contains("돼지고기")||s.contains("쇠고기"))
-                b_list[0] = true;
-            else if (s.contains("닭고기"))
-                b_list[1] = true;
-            else if (s.contains("고등어")||s.contains("새우")||s.contains("게")||s.contains("조개류")||s.contains("오징어")||s.contains("굴"))
-                b_list[2] = true;
-            else if (s.contains("난류")||s.contains("계란")||s.contains("알류")||s.contains("난황"))
-                b_list[3] = true;
-            else if (s.contains("우유"))
-                b_list[4] = true;
-            else if (s.contains("없음")||s.contains("N/A"))
-                b_list[5] = true;
-
-             */
         }
         return b_list;
     }

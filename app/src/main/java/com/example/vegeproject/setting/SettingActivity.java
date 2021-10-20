@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.vegeproject.MainActivity;
 import com.example.vegeproject.R;
@@ -22,6 +24,7 @@ public class SettingActivity extends AppCompatActivity {
 
     private TextView setLevel,personal_lev,setNickname,personal_nick;
     private ImageView personal_lev_img;
+    View.OnTouchListener touchListener;
     SharedPreferences pref;//프리퍼런스
     SharedPreferences.Editor editor;//에디터
     String pref_str,pref_str2;//저장될 장소
@@ -102,6 +105,32 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+        //버튼 클릭 효과
+        touchListener = new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                TextView image = (TextView) v;
+                float curX = event.getX();
+                float curY = event.getY();
+
+                switch (event.getAction()) {
+                    //손가락 눌림
+                    case MotionEvent.ACTION_DOWN: {
+                        image.setBackgroundResource(R.drawable.rectangle_darkdashgap);
+                        return false;
+                    }
+                    //손가락 뗌
+                    case MotionEvent.ACTION_UP: {
+                        image.setBackgroundResource(R.drawable.rectangle_dashgap);
+                        return false;
+                    }
+                    default:
+                        return false;
+                }
+            }
+        };
+        setLevel.setOnTouchListener(touchListener);
+        setNickname.setOnTouchListener(touchListener);
     }
 
     @Override

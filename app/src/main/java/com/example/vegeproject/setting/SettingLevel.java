@@ -78,7 +78,6 @@ public class SettingLevel extends AppCompatActivity {
                int id = rg.getCheckedRadioButtonId();
                RadioButton rb = (RadioButton) findViewById(id);
                level_nm=Math.abs(rg.indexOfChild(rb)-5);
-                Log.e("라디오 아이디","="+level_nm);
 
                //아무것도 선택 안되었을때
                if(rb == null){
@@ -99,6 +98,7 @@ public class SettingLevel extends AppCompatActivity {
                 }
             }
         });
+
 
 
 

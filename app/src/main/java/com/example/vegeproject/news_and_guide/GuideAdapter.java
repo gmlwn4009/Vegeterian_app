@@ -1,6 +1,7 @@
 package com.example.vegeproject.news_and_guide;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
 public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation> {
 
     private ArrayList<guide_item> items = new ArrayList<guide_item>();
+    View.OnTouchListener touchListener;
+
 
     public void addItem(String title, String subtitle, String content, int image1, int image2){
         guide_item item = new guide_item();
