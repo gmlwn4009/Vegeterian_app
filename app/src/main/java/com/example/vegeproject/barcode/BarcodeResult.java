@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Html;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,23 +35,21 @@ public class BarcodeResult extends AppCompatActivity {
         TextView productName = findViewById(R.id.productName);
         TextView productkind = findViewById(R.id.productKind);
         ImageView productImage = findViewById(R.id.productImage);
-        TextView productLevel = findViewById(R.id.productLevel);
 
         // 데이터 수신
         Intent intent = getIntent();
         firebaseData = (FirebaseData)intent.getSerializableExtra("data");
         System.out.println(firebaseData.prdlstNm+ " / " + firebaseData.allergy + " / " + firebaseData.barcode);
 
-        productName.setText(firebaseData.getPrdlstNm());
-        productkind.setText("#"+intent.getStringExtra("prdKind"));
+        productName.setText(firebaseData.prdlstNm);
+        productkind.setText("#"+firebaseData.prdKind);
         Glide.with(this).load(firebaseData.getImgUrl()).into(productImage);
 
         // 성분값 가공
-        String allergy = intent.getStringExtra("allergy").replaceAll(" ","")
+        String allergy = firebaseData.allergy.replaceAll(" ","")
                 .replaceAll("함유","")
                 .replaceAll("유래원재료","")
                 .replaceAll("\\*","")
-                .replaceAll("\\·이제품은원재료에알레르기유발물질인", "") // 팔도부대찌개라면
                 .replaceAll("을하고있습니다.", "") // 팔도부대찌개라면
                 .replaceAll("식품", "") // 묵은지돼지김치찌개
                 .replaceAll("※특정성분함량및원산지:후첨분말스프중닭고기0.62%", "") // 큰컵불닭볶음탕면
@@ -66,12 +65,8 @@ public class BarcodeResult extends AppCompatActivity {
         setComponent(allergies, allergies.length);
 
         // 단계 세팅
-        for (int i = 0; i < 5;i++)
+        for (int i = 0; i < 6;i++)
             if (contain[i]) { setLevel(i); break; }
-        if (contain[5])
-            productLevel.setText("알 수 없음");
-        else if ((contain[0] == false) && (contain[1] ==false)  && (contain[2] == false) && (contain[3] == false) && (contain[4] == false))
-            setLevel(5);
 
     }
 
@@ -132,11 +127,24 @@ public class BarcodeResult extends AppCompatActivity {
 
     // 성분값 세팅
     public void setComponent(String[] allergies, int length) {
-        int i, resID;
-        for (i = 0; i < length; i++) {
-            resID = getResources().getIdentifier("component"+(i+1), "id", this.getPackageName());
-            TextView component = findViewById(resID);
-            component.setText(allergies[i]);
+        int i, componentID, underlineID;
+        for (i = 0; i < 10; i++) {
+            componentID = getResources().getIdentifier("component" + (i + 1), "id", this.getPackageName());
+            TextView component = findViewById(componentID);
+
+            // 텍스트뷰에 성분값 적용
+            if (i < length)
+                component.setText(allergies[i]);
+
+                // 성분값 없는 레이아웃 제거
+            else {
+                component.setVisibility(View.GONE);
+                if (i > 5) {
+                    underlineID = getResources().getIdentifier("underline" + (i + 1), "id", this.getPackageName());
+                    View underline = findViewById(underlineID);
+                    underline.setVisibility(View.GONE);
+                }
+            }
         }
     }
 

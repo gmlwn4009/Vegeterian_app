@@ -39,7 +39,6 @@ public class SearchResultClick extends AppCompatActivity {
         TextView productname = findViewById(R.id.productName);
         TextView productkind = findViewById(R.id.productKind);
         ImageView productimage = findViewById(R.id.productImage);
-        TextView productLevel = findViewById(R.id.productLevel); // 알수없음 데이터 제거시 이 라인도 제거
 
         // 데이터 수신, 상품 세팅
         Intent intent = getIntent();
@@ -68,12 +67,8 @@ public class SearchResultClick extends AppCompatActivity {
         setComponent(allergies, allergies.length);
 
         // 단계 세팅
-        for (int i = 0; i < 5;i++)
+        for (int i = 0; i < 6;i++)
             if (contain[i]) { setLevel(i); break; }
-        if (contain[5])
-            productLevel.setText("알 수 없음");
-        else if ((contain[0] == false) && (contain[1] ==false)  && (contain[2] == false) && (contain[3] == false) && (contain[4] == false))
-            setLevel(5);
 }
 
     // 단계 분류
