@@ -14,13 +14,8 @@ import com.bumptech.glide.Glide;
 import com.example.vegeproject.R;
 
 import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class SearchResultClick extends AppCompatActivity {
-
-    private static final Pattern PATTERN_BRACKET = Pattern.compile("\\([^\\(\\)]+\\)");
-    private static final String VOID = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,18 +33,7 @@ public class SearchResultClick extends AppCompatActivity {
         Glide.with(this).load(intent.getStringExtra("imgUrl")).into(productimage);
 
         // 성분값 가공
-        String allergy = intent.getStringExtra("allergy").replaceAll(" ","")
-                .replaceAll("함유","")
-                .replaceAll("유래원재료","")
-                .replaceAll("\\*","")
-                .replaceAll("\\·이제품은원재료에알레르기유발물질인", "") // 팔도부대찌개라면
-                .replaceAll("을하고있습니다.", "") // 팔도부대찌개라면
-                .replaceAll("식품", "") // 묵은지돼지김치찌개
-                .replaceAll("※특정성분함량및원산지:후첨분말스프중닭고기0.62%", "") // 큰컵불닭볶음탕면
-                .replaceAll("날류", "난류") // CJ해물볶음밥
-                .replaceAll("조래규", "조개류") // 볶음진짬뽕
-                .replaceAll("소고기", "쇠고기");;
-        String[] allergies = deleteBracket(allergy).split(",");
+        String[] allergies = intent.getStringExtra("allergy").split(",");
 
         // 단계 분류
         boolean[] contain = classifyLevel(allergies);
@@ -139,21 +123,5 @@ public class SearchResultClick extends AppCompatActivity {
             int colorID = getResources().getIdentifier("rectangle_level", "drawable", this.getPackageName());
             btn.setBackgroundResource(colorID);
         }
-    }
-
-    // 괄호와 괄호 내부 내용 모두 삭제
-    private static String deleteBracket(String text) {
-        Matcher matcher = PATTERN_BRACKET.matcher(text);
-        String pureText = text;
-        String removeTextArea = new String();
-
-        while(matcher.find()) {
-            int startIndex = matcher.start();
-            int endIndex = matcher.end();
-            removeTextArea = pureText.substring(startIndex, endIndex);
-            pureText = pureText.replace(removeTextArea, VOID);
-            matcher = PATTERN_BRACKET.matcher(pureText);
-        }
-        return pureText;
     }
 }

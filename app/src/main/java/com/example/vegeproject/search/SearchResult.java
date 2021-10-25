@@ -23,6 +23,9 @@ public class SearchResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
 
+        ProgressDialog progressDialog = ((SearchActivity)SearchActivity.context).progressDialog;
+        progressDialog.dismiss();
+
         // 데이터 수신
         Intent intent = getIntent();
         fbList = (ArrayList<FirebaseData>)intent.getSerializableExtra("list");

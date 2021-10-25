@@ -1,6 +1,7 @@
 package com.example.vegeproject.barcode;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.vegeproject.search.FirebaseData;
+import com.example.vegeproject.search.ProgressDialog;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +28,8 @@ public class BarcodeActivity extends AppCompatActivity {
     private IntentIntegrator Scan;
     public String searchItem; // 바코드 값
 
+    public ProgressDialog progressDialog;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barcode);
@@ -34,6 +38,12 @@ public class BarcodeActivity extends AppCompatActivity {
         Scan.setOrientationLocked(false); // 폰 방향대로 가로세로 모드 변경
         Scan.setPrompt("바코드를 카메라 중앙에 맞춰주세요.");
         Scan.initiateScan();
+
+        // 로딩창 객체 생성
+        progressDialog = new ProgressDialog(this);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        progressDialog.setCancelable(false);
+        progressDialog.show();
     }
 
     @Override
@@ -51,8 +61,8 @@ public class BarcodeActivity extends AppCompatActivity {
             }
             // 바코드 정보 입력성공 시
             else {
-                Toast.makeText(this, "바코드 값: " + result.getContents(), Toast.LENGTH_LONG).show();
                 searchItem = result.getContents();
+
                 readFirebaseData(new MyCallback() {
                     @Override
                     public void onCallback(FirebaseData data) {
@@ -60,6 +70,8 @@ public class BarcodeActivity extends AppCompatActivity {
                         Intent intent = new Intent(BarcodeActivity.this, BarcodeResult.class);
                         intent.putExtra("data", firebaseData); // 데이터 송신
                         startActivity(intent);
+                        progressDialog.dismiss();
+                        finish();
                     }
                 });
             }
