@@ -19,34 +19,32 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
 
     private ArrayList<guide_item> items = new ArrayList<guide_item>();
 
-    public void addItem(String title, String subtitle, String content, int image1, int image2){
+    public void addItem(String title, String subtitle, String content, int image){
         guide_item item = new guide_item();
 
         item.setTitle(title);
         item.setContent(content);
         item.setSubtitle(subtitle);
-        item.setPhoto1(image1);
-        item.setPhoto2(image2);
+        item.setPhoto(image);
         items.add(item);
     }
 
-    // 아이템 뷰를 저장하는 뷰홀더 클래스.
+    // 아이템 뷰를 저장하는 뷰홀더 클래스
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // 사용될 항목들 선언
         public TextView mTitle, subTitle;
         public TextView mContent;
-        public ImageView imageView1, imageView2;
+        public ImageView imageView;
         public LinearLayout btnSearch;
 
-        // 뷰 객체 참조.
+        // 뷰 객체 참조
         public ViewHolder(View v) {
             super(v);
 
             mTitle = (TextView) v.findViewById(R.id.title_view);
             subTitle = (TextView) v.findViewById(R.id.subtitle_view);
             mContent = (TextView) v.findViewById(R.id.content_view);
-            imageView1 = (ImageView) v.findViewById(R.id.imageView1);
-            imageView2 = (ImageView) v.findViewById(R.id.image_view2);
+            imageView = (ImageView) v.findViewById(R.id.image_view);
             btnSearch = v.findViewById(R.id.btnSearch);
         }
 
@@ -54,12 +52,11 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
             mTitle.setText(item.getTitle());
             subTitle.setText(item.getSubtitle());
             mContent.setText(item.getContent());
-            imageView1.setImageResource(item.getPhoto1());
-            imageView2.setImageResource(item.getPhoto2());
+            imageView.setImageResource(item.getPhoto());
         }
     }
 
-    //뷰홀더
+    // 뷰홀더
     // Create new views (invoked by the layout manager)
     // viewType 형태의 아이템 뷰를 위한 뷰홀더 객체 생성
     @Override
@@ -77,24 +74,23 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
         holder.title.setText(item.getTitle());
         holder.subtitle.setText(item.getSubtitle());
         holder.content.setText(item.getContent());
-        holder.photo1.setImageResource(item.getPhoto1());
-        holder.photo2.setImageResource(item.getPhoto2());
+        holder.photo.setImageResource(item.getPhoto());
 
         boolean isExpandable = items.get(position).isExpandable();
         holder.expandableLayout.setVisibility(isExpandable ? View.VISIBLE : View.GONE);
     }
 
-    // 전체 아이템 개수 리턴.
+    // 전체 아이템 개수 리턴
     @Override
     public int getItemCount() {
         return items.size();
     }
 
-    // 리사이클러뷰의 확장. 클릭 시 아래로 확장되면서 숨겨진 레이아웃이 나온다.
+    // 리사이클러뷰의 확장 (클릭 시 아래로 확장되면서 숨겨진 레이아웃이 나온다)
     public class explanation extends RecyclerView.ViewHolder {
 
         TextView title, subtitle, content;
-        ImageView photo1, photo2;
+        ImageView photo;
         LinearLayout linearLayout;
         ConstraintLayout expandableLayout;
 
@@ -104,13 +100,12 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
             title = itemView.findViewById(R.id.title_view);
             subtitle = itemView.findViewById(R.id.subtitle_view);
             content = itemView.findViewById(R.id.content_view);
-            photo1 = itemView.findViewById(R.id.imageView1);
-            photo2 = itemView.findViewById(R.id.image_view2);
+            photo = itemView.findViewById(R.id.image_view);
 
             linearLayout = itemView.findViewById(R.id.linear_layout);
             expandableLayout = itemView.findViewById(R.id.expandable_view1);
 
-            // 클릭 시 호출되는 메소드.
+            // 클릭 시 호출되는 메소드
             linearLayout.setOnClickListener(new View.OnClickListener(){
 
                 @Override

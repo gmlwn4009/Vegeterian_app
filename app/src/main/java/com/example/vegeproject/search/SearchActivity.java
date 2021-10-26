@@ -22,11 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-
 public class SearchActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("list");
-    private FirebaseData firebaseList = new FirebaseData();
     private ArrayList<FirebaseData> arrayList = new ArrayList<FirebaseData>();
     public String searchItem;
 

@@ -1,8 +1,15 @@
 package com.example.vegeproject.barcode;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -130,6 +137,32 @@ public class BarcodeResult extends AppCompatActivity {
             TextView btn = findViewById(btnID);
             int colorID = getResources().getIdentifier("rectangle_level", "drawable", this.getPackageName());
             btn.setBackgroundResource(colorID);
+        }
+
+        // 단계 적합 여부
+        SharedPreferences prefLevel = getSharedPreferences("pref2", Activity.MODE_PRIVATE); // 프리퍼런스 초기화
+        SharedPreferences prefNick = getSharedPreferences("pref3",Activity.MODE_PRIVATE);
+        String myNick = prefNick.getString("SAVE_CHANGED_DATA","비거닝");
+        int myLevel = prefLevel.getInt("SAVE_LEVEL_NUMBER",-1); // 변수에 나의 단계 저장
+        TextView fitText = findViewById(R.id.fitness);
+
+        if (myLevel < 0) {
+            fitText.setText("설정탭에서 나의 단계를 설정하면\\n 제품의 섭취 가능 여부를 확인할 수 있습니다.");
+        }
+        else {
+            int len = myNick.length() + 6;
+            fitText.setTextSize(15);
+            fitText.setTextColor(Color.parseColor("#000000"));
+
+            if (myLevel <= level) {
+                Spannable span = new SpannableStringBuilder(myNick + "님이 섭취 가능한 제품이에요:)");
+                span.setSpan(new ForegroundColorSpan(Color.BLUE), len, len+2, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                fitText.setText(span);
+            } else {
+                Spannable span = new SpannableStringBuilder(myNick + "님은 섭취 불가능한 제품이에요;-;");
+                span.setSpan(new ForegroundColorSpan(Color.RED), len, len+3, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                fitText.setText(span);
+            }
         }
     }
 }

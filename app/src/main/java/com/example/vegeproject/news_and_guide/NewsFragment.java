@@ -1,16 +1,10 @@
 package com.example.vegeproject.news_and_guide;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -57,75 +51,66 @@ public class NewsFragment extends Fragment {
             @Override
             protected String doInBackground(String... urls) {
 
-
                 try {
-
                     boolean itemTag=false;
                     boolean titleTag=false;
                     boolean companyTag=false;
                     boolean pubDateTag=false;
                     boolean linkTag=false;
 
-                    URL url= new URL("https://news.google.com/rss/search?q=%EB%B9%84%EA%B1%B4&hl=ko&gl=KR&ceid=KR:ko");
+                    URL url= new URL("https://news.google.com/rss/search?q=%EB%B9%84%EA%B1%B4%7C%EC%B1%84%EC%8B%9D&hl=ko&gl=KR&ceid=KR%3Ako");
                     InputStream in= url.openStream();
-
 
                     XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
                     XmlPullParser parser = factory.newPullParser();
                     parser.setInput(in, "UTF-8");
 
-
                     int eventType =parser.getEventType();
 
-                    while (eventType !=XmlPullParser.END_DOCUMENT) {//xml문서의 끝인가요?
+                    while (eventType !=XmlPullParser.END_DOCUMENT) {
                         switch (eventType) {
 
-                            case XmlPullParser.START_DOCUMENT://파일시작?
+                            case XmlPullParser.START_DOCUMENT:
                                 itemArrayList = new ArrayList<news_item>();
                                 break;
 
-                            case XmlPullParser.END_DOCUMENT://파일끝?
+                            case XmlPullParser.END_DOCUMENT:
                                 break;
 
-                            case XmlPullParser.END_TAG://태그 끝나묜
+                            case XmlPullParser.END_TAG: // 태그 끝
                                 if(parser.getName().equals("item")&&news != null) {
                                     itemArrayList.add(news);
                                 }
                                 break;
 
-                            case XmlPullParser.START_TAG://태그시작!
-                                if (parser.getName().equals("item")){//시작태그가 item일경우
+                            case XmlPullParser.START_TAG: // 태그 시작
+                                if (parser.getName().equals("item")){ // 시작태그가 item일 경우
                                     news = new news_item();
                                     itemTag = true;
                                 }
-                                if (parser.getName().equals("title"))//시작태그가 title일때,,,
-                                    titleTag = true;//titleTag값을 true로!
-                                else if (parser.getName().equals("source"))//시작태그가 source일때
-                                    companyTag = true;//companytag값을 true로
-                                else if (parser.getName().equals("pubDate"))//시작태그가 pubDate일때
-                                    pubDateTag = true;//pubDate값을 true로
-                                else if (parser.getName().equals("link"))//시작태그가 pubDate일때
-                                    linkTag = true;//pubDate값을 true로
+                                if (parser.getName().equals("title")) // 시작태그가 title일 경우
+                                    titleTag = true;
+                                else if (parser.getName().equals("source")) // 시작태그가 source일 경우
+                                    companyTag = true;
+                                else if (parser.getName().equals("pubDate")) // 시작태그가 pubDate일 경우
+                                    pubDateTag = true;
+                                else if (parser.getName().equals("link")) // 시작태그가 pubDate일 경우
+                                    linkTag = true;
                                 break;
 
                             case XmlPullParser.TEXT:
                                 if(itemTag) {
                                     if (titleTag) {
-                                        //if(parser.getText().equals("\"비건\" - Google 뉴스"))
                                         news.setTitle(parser.getText());
-                                        Log.e("title", parser.getText());
                                         titleTag = false;
                                     } else if (companyTag) {
                                         news.setCompany(parser.getText());
-                                        Log.e("source",parser.getText());
                                         companyTag = false;
                                     } else if (pubDateTag) {
                                         news.setPubDate(parser.getText());
-                                        Log.e("pubDate", parser.getText());
                                         pubDateTag = false;
                                     } else if (linkTag) {
                                         news.setLink(parser.getText());
-                                        Log.e("link", parser.getText());
                                         linkTag = false;
                                     }
                                     break;
@@ -135,22 +120,19 @@ public class NewsFragment extends Fragment {
                     }
                     in.close();
                     return null;
-                }catch (IOException e) {//에러1
+                }catch (IOException e) {
                     e.printStackTrace();
                     return "IOException error";
-                } catch (XmlPullParserException e) {//에러2
+                } catch (XmlPullParserException e) {
                     return "XmlPullParserException error";
                 }
-
             }
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
 
-
-                //어댑터연결
+                // 어댑터 연결
                 NewsAdapter adapter = new NewsAdapter(getActivity(),itemArrayList);
                 recyclerView.setAdapter(adapter);
-
             }
 
             private InputStream downloadUrl(String urlString) throws IOException {
@@ -166,7 +148,7 @@ public class NewsFragment extends Fragment {
             }
         }
 
-        //news_getXML실행하는 코드
+        // news_get XML 실행
         news_getXML myAsyncTask = new news_getXML();
         myAsyncTask.execute();
 
