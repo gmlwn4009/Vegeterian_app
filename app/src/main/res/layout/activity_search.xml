@@ -79,7 +79,7 @@
             android:id="@+id/recentSearchItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ㅇㅇㅇ"
+            android:text="최근 검색기록이 없습니다."
             android:textColor="@color/black"
             android:letterSpacing="-0.05"
             android:layout_margin="15dp"/>

@@ -18,8 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.vegeproject.R;
 
 public class SettingLevel extends AppCompatActivity {
-    SharedPreferences pref2;
-    SharedPreferences.Editor editor2;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
     String savedClickedData;
     int level_nm;
 
@@ -40,12 +40,12 @@ public class SettingLevel extends AppCompatActivity {
 
 
         //Shared Preference 초기화
-        pref2 = getSharedPreferences("pref2", Activity.MODE_PRIVATE);
-        editor2 = pref2.edit();
+        pref = getSharedPreferences("pref2", Activity.MODE_PRIVATE);
+        editor = pref.edit();
 
         //저장값 불러오기
-        savedClickedData = pref2.getString("SAVE_CHECK_DATA","");
-        level_nm = pref2.getInt("SAVE_LEVEL_NUMBER",-1);
+        savedClickedData = pref.getString("SAVE_CHECK_DATA","");
+        level_nm = pref.getInt("SAVE_LEVEL_NUMBER",-1);
         //Log.e("savedClickedData",savedClickedData);
 
         //이전에 저장된값 보여주기
@@ -89,9 +89,9 @@ public class SettingLevel extends AppCompatActivity {
                    Intent data = new Intent();
                    data.putExtra("결과", rb.getText().toString());
                    savedClickedData = rb.getText().toString();
-                   editor2.putString("SAVE_CHECK_DATA",savedClickedData);
-                   editor2.putInt("SAVE_LEVEL_NUMBER",level_nm);
-                   editor2.apply();
+                   editor.putString("SAVE_CHECK_DATA",savedClickedData);
+                   editor.putInt("SAVE_LEVEL_NUMBER",level_nm);
+                   editor.apply();
 
                    setResult(RESULT_OK, data);
                    finish();

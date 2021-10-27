@@ -1,6 +1,8 @@
 package com.example.vegeproject.search;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -30,12 +32,23 @@ public class SearchActivity extends AppCompatActivity {
     private FirebaseData firebaseList = new FirebaseData();
     private ArrayList<FirebaseData> arrayList = new ArrayList<FirebaseData>();
     public String searchItem;
+    SharedPreferences pref;//프리퍼런스
+    SharedPreferences.Editor editor;//에디터
+    String pref_str;//프리퍼런스 변수
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
         ImageView searchButton = findViewById(R.id.searchButton);
+
+
+        //Shared Preference 초기화
+        pref = getSharedPreferences("prefrecent", Activity.MODE_PRIVATE);
+        editor = pref.edit();
+
+        //저장해둔 값 불러오기
+        pref_str = pref.getString("Pref_ recent","최근 검색기록이 없습니다.");
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,8 +59,15 @@ public class SearchActivity extends AppCompatActivity {
                 EditText editText = findViewById(R.id.editText);
                 searchItem = editText.getText().toString();
 
-                // 최근검색목록 update → 아직은 1 아이템만 가능, 2학기에 누적되도록 구현 예정
-                recentSearchItem.setText(editText.getText());
+                // 최근검색목록 update
+                if(pref_str.equals("최근 검색기록이 없습니다."))
+                    recentSearchItem.setText(editText.getText());
+               else
+                    recentSearchItem.setText(editText.getText());
+
+               //apply
+                editor.putString("Pref_str", pref_str);
+                editor.apply();
 
                 readFirebaseData(new MyCallback() {
                     @Override
