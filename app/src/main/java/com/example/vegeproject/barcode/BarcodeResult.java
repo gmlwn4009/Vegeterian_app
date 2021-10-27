@@ -44,18 +44,8 @@ public class BarcodeResult extends AppCompatActivity {
         Glide.with(this).load(firebaseData.getImgUrl()).into(productImage);
 
         // 성분값 가공
-        String allergy = intent.getStringExtra("allergy").replaceAll(" ","")
-                .replaceAll("함유","")
-                .replaceAll("유래원재료","")
-                .replaceAll("\\*","")
-                .replaceAll("\\·이제품은원재료에알레르기유발물질인", "") // 팔도부대찌개라면
-                .replaceAll("을하고있습니다.", "") // 팔도부대찌개라면
-                .replaceAll("식품", "") // 묵은지돼지김치찌개
-                .replaceAll("※특정성분함량및원산지:후첨분말스프중닭고기0.62%", "") // 큰컵불닭볶음탕면
-                .replaceAll("날류", "난류") // CJ해물볶음밥
-                .replaceAll("조래규", "조개류") // 볶음진짬뽕
-                .replaceAll("소고기", "쇠고기");;
-        String[] allergies = deleteBracket(allergy).split(",");
+        String allergy = intent.getStringExtra("allergy");
+        String[] allergies = allergy.split(",");
 
         // 단계 분류
         boolean[] contain = classifyLevel(allergies);
@@ -88,7 +78,7 @@ public class BarcodeResult extends AppCompatActivity {
                 b_list[3] = true;
             else if (s.contains("우유"))
                 b_list[4] = true;
-            else if (s.contains("없음")||s.contains("N/A"))
+            else if (s.contains("없음"))
                 b_list[5] = true;
         }
         return b_list;
@@ -126,19 +116,19 @@ public class BarcodeResult extends AppCompatActivity {
     }
 
     // 괄호와 괄호 내부 내용 모두 삭제
-    private static String deleteBracket(String text) {
-        Matcher matcher = PATTERN_BRACKET.matcher(text);
-        String pureText = text;
-        String removeTextArea = new String();
-
-        while(matcher.find()) {
-            int startIndex = matcher.start();
-            int endIndex = matcher.end();
-            removeTextArea = pureText.substring(startIndex, endIndex);
-            pureText = pureText.replace(removeTextArea, VOID);
-            matcher = PATTERN_BRACKET.matcher(pureText);
-        }
-        return pureText;
-    }
+//    private static String deleteBracket(String text) {
+//        Matcher matcher = PATTERN_BRACKET.matcher(text);
+//        String pureText = text;
+//        String removeTextArea = new String();
+//
+//        while(matcher.find()) {
+//            int startIndex = matcher.start();
+//            int endIndex = matcher.end();
+//            removeTextArea = pureText.substring(startIndex, endIndex);
+//            pureText = pureText.replace(removeTextArea, VOID);
+//            matcher = PATTERN_BRACKET.matcher(pureText);
+//        }
+//        return pureText;
+//    }
 
 }

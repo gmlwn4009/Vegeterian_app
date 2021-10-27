@@ -10,10 +10,6 @@
         android:orientation="vertical">
 
         <TextView
-<<<<<<< HEAD
-
-=======
->>>>>>> 6aa209097538630142fd34286716078caceebcff
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -22,22 +18,13 @@
             android:letterSpacing="-0.05"
             android:text="단계를 설정해 주세요."
             android:textSize="30dp"
-<<<<<<< HEAD
-            android:textColor="@color/black"
-            />
-=======
             android:textColor="@color/black" />
->>>>>>> 6aa209097538630142fd34286716078caceebcff
 
         <RadioGroup
             android:id="@+id/RadioGroup1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6aa209097538630142fd34286716078caceebcff
             <RadioButton
                 android:id="@+id/lev_began"
                 android:layout_width="200dp"
@@ -48,12 +35,7 @@
                 android:layout_gravity="center"
                 android:letterSpacing="-0.05"
                 android:text="비건"
-<<<<<<< HEAD
-                android:textColor="@color/black"
-                />
-=======
                 android:textColor="@color/black" />
->>>>>>> 6aa209097538630142fd34286716078caceebcff
             <RadioButton
                 android:id="@+id/lev_lacto"
                 android:layout_width="200dp"
@@ -64,12 +46,7 @@
                 android:layout_gravity="center"
                 android:letterSpacing="-0.05"
                 android:text="락토"
-<<<<<<< HEAD
-                android:textColor="@color/black"
-                />
-=======
                 android:textColor="@color/black" />
->>>>>>> 6aa209097538630142fd34286716078caceebcff
             <RadioButton
                 android:id="@+id/lev_lactovo"
                 android:layout_width="200dp"
@@ -80,16 +57,9 @@
                 android:layout_gravity="center"
                 android:letterSpacing="-0.05"
                 android:text="락토오보"
-<<<<<<< HEAD
-                android:textColor="@color/black"
-                />
-            <RadioButton
-                android:id="@+id/lev_semi"
-=======
                 android:textColor="@color/black" />
             <RadioButton
                 android:id="@+id/lev_pesco"
->>>>>>> 6aa209097538630142fd34286716078caceebcff
                 android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:layout_marginBottom="30dp"
@@ -97,18 +67,10 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:letterSpacing="-0.05"
-<<<<<<< HEAD
-                android:text="세미"
-                android:textColor="@color/black"
-                />
-            <RadioButton
-                android:id="@+id/lev_pesco"
-=======
                 android:text="페스코"
                 android:textColor="@color/black" />
             <RadioButton
                 android:id="@+id/lev_semi"
->>>>>>> 6aa209097538630142fd34286716078caceebcff
                 android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:layout_marginBottom="30dp"
@@ -116,14 +78,8 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:letterSpacing="-0.05"
-<<<<<<< HEAD
-                android:text="페스코"
-                android:textColor="@color/black"
-                />
-=======
                 android:text="세미"
                 android:textColor="@color/black" />
->>>>>>> 6aa209097538630142fd34286716078caceebcff
             <RadioButton
                 android:id="@+id/lev_flexi"
                 android:layout_width="200dp"
@@ -134,31 +90,17 @@
                 android:layout_gravity="center"
                 android:letterSpacing="-0.05"
                 android:text="플렉시테리언"
-<<<<<<< HEAD
-                android:textColor="@color/black"
-                />
-=======
                 android:textColor="@color/black" />
->>>>>>> 6aa209097538630142fd34286716078caceebcff
 
         </RadioGroup>
 
         <Button
             android:id="@+id/select_ok"
-<<<<<<< HEAD
-            android:background="@drawable/ripple_background"
-=======
->>>>>>> 6aa209097538630142fd34286716078caceebcff
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="15dp"
-<<<<<<< HEAD
-            android:text="선택 완료"
-            />
-=======
             android:text="선택 완료" />
->>>>>>> 6aa209097538630142fd34286716078caceebcff
 
     </LinearLayout>
 </ScrollView>
