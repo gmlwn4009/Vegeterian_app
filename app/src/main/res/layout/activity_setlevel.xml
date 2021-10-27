@@ -78,7 +78,7 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:letterSpacing="-0.05"
-                android:text="세미"
+                android:text="폴로"
                 android:textColor="@color/black" />
             <RadioButton
                 android:id="@+id/lev_flexi"
