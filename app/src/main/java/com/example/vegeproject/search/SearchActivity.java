@@ -2,6 +2,9 @@ package com.example.vegeproject.search;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.view.MotionEvent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -68,7 +71,29 @@ public class SearchActivity extends AppCompatActivity {
                 });
             }
         });
+        searchButton.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                ImageView image = (ImageView) v;
+                float curX = event.getX();
+                float curY = event.getY();
 
+                switch (event.getAction()) {
+                    //손가락 눌림
+                    case MotionEvent.ACTION_DOWN: {
+                        image.setColorFilter(Color.parseColor("#4D000000"), PorterDuff.Mode.DST_OVER);
+                        return false;
+                    }
+                    //손가락 뗌
+                    case MotionEvent.ACTION_UP: {
+                        image.setColorFilter(null);
+                        return false;
+                    }
+                    default:
+                        return false;
+                }
+            }
+        });
     }
 
     public void readFirebaseData(MyCallback myCallback){
