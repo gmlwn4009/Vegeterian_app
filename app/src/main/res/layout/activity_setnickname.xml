@@ -3,12 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-<<<<<<< HEAD
-    android:orientation="vertical"
-    >
-=======
     android:orientation="vertical">
->>>>>>> 6aa209097538630142fd34286716078caceebcff
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,12 +13,7 @@
         android:textStyle="bold"
         android:layout_marginTop="100dp"
         android:padding="20dp"
-<<<<<<< HEAD
-        android:gravity="center"
-        />
-=======
         android:gravity="center" />
->>>>>>> 6aa209097538630142fd34286716078caceebcff
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,23 +27,13 @@
             android:layout_height="wrap_content"
             android:hint="닉네임"
             android:textSize="25dp"
-<<<<<<< HEAD
-            android:layout_gravity="center"
-            />
-=======
             android:layout_gravity="center" />
->>>>>>> 6aa209097538630142fd34286716078caceebcff
         <Button
             android:id="@+id/change_ok"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:text="변경 완료"
-<<<<<<< HEAD
-            android:layout_marginLeft="10dp"
-            />
-=======
             android:layout_marginLeft="10dp" />
->>>>>>> 6aa209097538630142fd34286716078caceebcff
 
     </LinearLayout>
 
