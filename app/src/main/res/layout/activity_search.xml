@@ -6,6 +6,7 @@
     android:id="@+id/search_fragment"
     android:orientation="vertical">
 
+
     <LinearLayout
         android:id="@+id/titlebar"
         android:layout_width="match_parent"
@@ -85,4 +86,5 @@
             android:layout_margin="15dp"/>
 
     </LinearLayout>
+
 </LinearLayout>
