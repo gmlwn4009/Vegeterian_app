@@ -1,6 +1,8 @@
 package com.example.vegeproject.search;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,23 +22,32 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-
 public class SearchActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("list");
-    private FirebaseData firebaseList = new FirebaseData();
     private ArrayList<FirebaseData> arrayList = new ArrayList<FirebaseData>();
     public String searchItem;
+
+    public ProgressDialog progressDialog;
+    public static Context context;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        context = this;
 
         ImageView searchButton = findViewById(R.id.searchButton);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // 로딩창 객체 생성
+                progressDialog = new ProgressDialog(context);
+                progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+
                 TextView recentSearchItem = findViewById(R.id.recentSearchItem);
 
                 // 검색할 키워드 입력
@@ -56,7 +67,7 @@ public class SearchActivity extends AppCompatActivity {
                     }
                 });
             }
-        }) ;
+        });
 
     }
 

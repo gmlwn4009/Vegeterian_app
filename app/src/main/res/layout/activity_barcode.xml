@@ -23,11 +23,4 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="잠시만 기다려 주세요" />
-
 </FrameLayout>

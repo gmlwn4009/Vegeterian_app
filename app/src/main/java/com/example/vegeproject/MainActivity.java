@@ -2,6 +2,7 @@ package com.example.vegeproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.example.vegeproject.setting.SettingActivity;
 public class MainActivity extends AppCompatActivity {
 
     private ConstraintLayout btnSearch, btnBarcode, btnGuide, btnSetting;
+    View.OnTouchListener touchListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,5 +58,34 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // 버튼 클릭 효과
+        touchListener = new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                ConstraintLayout image = (ConstraintLayout) v;
+                float curX = event.getX();
+                float curY = event.getY();
+
+                switch (event.getAction()) {
+                    // 손가락 눌림
+                    case MotionEvent.ACTION_DOWN: {
+                        image.setAlpha((float) 0.8);
+                        return false;
+                    }
+                    // 손가락 뗌
+                    case MotionEvent.ACTION_UP: {
+                        image.setAlpha(1);
+                        return false;
+                    }
+                    default:
+                        return false;
+                }
+            }
+        };
+        btnSearch.setOnTouchListener(touchListener);
+        btnBarcode.setOnTouchListener(touchListener);
+        btnGuide.setOnTouchListener(touchListener);
+        btnSearch.setOnTouchListener(touchListener);
     }
 }

@@ -3,7 +3,7 @@ package com.example.vegeproject.news_and_guide;
 public class guide_item {
 
     private String title, subtitle, content;
-    private int photo1, photo2;
+    private int photo;
 
     private boolean expandable;
 
@@ -25,20 +25,12 @@ public class guide_item {
         this.subtitle = subtitle;
     }
 
-    public int getPhoto1() {
-        return photo1;
+    public int getPhoto() {
+        return photo;
     }
 
-    public void setPhoto1(int photo1) {
-        this.photo1 = photo1;
-    }
-
-    public int getPhoto2() {
-        return photo2;
-    }
-
-    public void setPhoto2(int photo2) {
-        this.photo2 = photo2;
+    public void setPhoto(int photo) {
+        this.photo = photo;
     }
 
     public void setTitle(String title) {

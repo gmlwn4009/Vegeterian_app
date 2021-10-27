@@ -24,7 +24,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/pattern"
+        android:background="@drawable/image_main_pattern"
         android:padding="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
