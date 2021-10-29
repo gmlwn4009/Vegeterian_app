@@ -41,10 +41,10 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
         public ViewHolder(View v) {
             super(v);
 
-            mTitle = (TextView) v.findViewById(R.id.title_view);
-            subTitle = (TextView) v.findViewById(R.id.subtitle_view);
-            mContent = (TextView) v.findViewById(R.id.content_view);
-            imageView = (ImageView) v.findViewById(R.id.image_view);
+            mTitle = (TextView) v.findViewById(R.id.guide_title);
+            subTitle = (TextView) v.findViewById(R.id.guide_subtitle);
+            mContent = (TextView) v.findViewById(R.id.guide_content);
+            imageView = (ImageView) v.findViewById(R.id.guide_image);
             btnSearch = v.findViewById(R.id.btnSearch);
         }
 
@@ -97,17 +97,16 @@ public class GuideAdapter extends RecyclerView.Adapter<GuideAdapter.explanation>
         public explanation(@NonNull View itemView) {
             super(itemView);
 
-            title = itemView.findViewById(R.id.title_view);
-            subtitle = itemView.findViewById(R.id.subtitle_view);
-            content = itemView.findViewById(R.id.content_view);
-            photo = itemView.findViewById(R.id.image_view);
+            title = itemView.findViewById(R.id.guide_title);
+            subtitle = itemView.findViewById(R.id.guide_subtitle);
+            content = itemView.findViewById(R.id.guide_content);
+            photo = itemView.findViewById(R.id.guide_image);
 
             linearLayout = itemView.findViewById(R.id.linear_layout);
-            expandableLayout = itemView.findViewById(R.id.expandable_view1);
+            expandableLayout = itemView.findViewById(R.id.expandable_view);
 
             // 클릭 시 호출되는 메소드
             linearLayout.setOnClickListener(new View.OnClickListener(){
-
                 @Override
                 public void onClick(View v) {
                     guide_item guideItem = items.get(getAdapterPosition());

@@ -139,7 +139,7 @@ public class SearchResultClick extends AppCompatActivity {
         TextView fitText = findViewById(R.id.fitness);
 
         if (myLevel < 0) {
-            fitText.setText("설정탭에서 나의 단계를 설정하면\\n 제품의 섭취 가능 여부를 확인할 수 있습니다.");
+            fitText.setText("설정탭에서 나의 단계를 설정하면\n 제품의 섭취 가능 여부를 확인할 수 있습니다.");
         }
         else {
             int len = myNick.length() + 6;

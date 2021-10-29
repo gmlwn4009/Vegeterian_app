@@ -59,9 +59,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         ViewHolder(View v) {
             super(v);
 
-            mTitle = (TextView) v.findViewById(R.id.title_view);
-            mcompany=(TextView) v.findViewById(R.id.company_view);
-            mpubDate = (TextView) v.findViewById(R.id.pubDate_view);
+            mTitle = (TextView) v.findViewById(R.id.news_title);
+            mcompany=(TextView) v.findViewById(R.id.news_company);
+            mpubDate = (TextView) v.findViewById(R.id.news_pub_date);
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override

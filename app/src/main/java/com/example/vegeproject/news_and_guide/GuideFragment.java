@@ -19,12 +19,12 @@ import com.example.vegeproject.R;
 import java.util.ArrayList;
 
 public class GuideFragment extends Fragment {
-    private RecyclerView recyclerView1;
-    private LinearLayoutManager layoutManager1;
+    private RecyclerView recyclerView;
+    private LinearLayoutManager layoutManager;
 
     private LinearLayout btnSearch;
-    private ConstraintLayout expandableView1;
-    private CardView cardView1;
+    private ConstraintLayout expandableView;
+    private CardView cardView;
 
     private ArrayList<news_item> itemArrayList;
     @Nullable
@@ -34,15 +34,15 @@ public class GuideFragment extends Fragment {
         View v = inflater.inflate(R.layout.guide_card,container,false);
 
         btnSearch = v.findViewById(R.id.btnSearch);
-        expandableView1 = v.findViewById(R.id.expandable_view1);
-        cardView1 = v.findViewById(R.id.card1);
+        expandableView = v.findViewById(R.id.expandable_view);
+        cardView = v.findViewById(R.id.guide_card);
         itemArrayList = new ArrayList<>();
 
-        recyclerView1 = root.findViewById(R.id.recycler_view);
-        layoutManager1 = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
-        recyclerView1.setLayoutManager(layoutManager1);
+        recyclerView = root.findViewById(R.id.recycler_view);
+        layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(layoutManager);
         GuideAdapter adapter = new GuideAdapter();
-        recyclerView1.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
 
         adapter.addItem("채식주의가 뭔가요?", "The definition of vegetarianism",
                 " 1944년, 유제품을 먹지 않는 채식주의자에 대한 개념을 탐구하던 중 beginning과 vegetarian을 결합해 vegan이라는 용어를 제시했습니다." +
