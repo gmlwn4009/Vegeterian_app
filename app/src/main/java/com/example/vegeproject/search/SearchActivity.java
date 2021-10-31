@@ -81,7 +81,7 @@ public class SearchActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     //손가락 눌림
                     case MotionEvent.ACTION_DOWN: {
-                        image.setColorFilter(Color.parseColor("#4D000000"), PorterDuff.Mode.DST_OVER);
+                        image.setColorFilter(Color.parseColor("#608A2B"), PorterDuff.Mode.SRC_IN);
                         return false;
                     }
                     //손가락 뗌

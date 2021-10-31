@@ -30,8 +30,8 @@
         <activity android:name=".search.SearchResult"/>
         <activity android:name=".search.SearchResultClick"/>
         <activity android:name=".setting.SettingActivity"/>
-        <activity android:name=".setting.SettingLevel"/>
-        <activity android:name=".setting.SettingNickname"/>
+        <activity android:name=".setting.SettingLevel" android:theme="@android:style/Theme.Holo.Dialog"/>
+        <activity android:name=".setting.SettingNickname" android:theme="@android:style/Theme.Holo.Dialog"/>
         <activity android:name=".barcode.BarcodeActivity"/>
         <activity android:name=".barcode.BarcodeResult"/>
 

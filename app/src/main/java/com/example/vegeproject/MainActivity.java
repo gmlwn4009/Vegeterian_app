@@ -86,6 +86,6 @@ public class MainActivity extends AppCompatActivity {
         btnSearch.setOnTouchListener(touchListener);
         btnBarcode.setOnTouchListener(touchListener);
         btnGuide.setOnTouchListener(touchListener);
-        btnSearch.setOnTouchListener(touchListener);
+        btnSetting.setOnTouchListener(touchListener);
     }
 }
