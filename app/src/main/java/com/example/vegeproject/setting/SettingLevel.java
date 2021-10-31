@@ -33,7 +33,7 @@ public class SettingLevel extends Activity {
         final RadioButton r_lacto = (RadioButton) findViewById(R.id.lev_lacto);
         final RadioButton r_lactovo = (RadioButton) findViewById(R.id.lev_lactovo);
         final RadioButton r_pesco = (RadioButton) findViewById(R.id.lev_pesco);
-        final RadioButton r_semi = (RadioButton) findViewById(R.id.lev_semi);
+        final RadioButton r_polo = (RadioButton) findViewById(R.id.lev_polo);
         final RadioButton r_flexi = (RadioButton) findViewById(R.id.lev_flexi);
         Button b = (Button) findViewById(R.id.select_ok); // 설정 완료 버튼
 
@@ -59,8 +59,8 @@ public class SettingLevel extends Activity {
             case "페스코":
                 r_pesco.setChecked(true);
                 break;
-            case "세미":
-                r_semi.setChecked(true);
+            case "폴로":
+                r_polo.setChecked(true);
                 break;
             case "플렉시테리언":
                 r_flexi.setChecked(true);

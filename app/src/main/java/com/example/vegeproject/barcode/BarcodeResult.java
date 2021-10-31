@@ -67,7 +67,7 @@ public class BarcodeResult extends AppCompatActivity {
                 case "돼지고기" : case "쇠고기" :
                     b_list[0] = true;
                     break;
-                //세미
+                //폴로
                 case "닭고기" :
                     b_list[1] = true;
                     break;
