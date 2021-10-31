@@ -66,7 +66,7 @@ public class SettingActivity extends AppCompatActivity {
                     personal_lev.setText("당신은 " + pref_str + "군요!");
                     personal_lev_img.setImageResource(R.drawable.level2);
                     break;
-                case "세미":
+                case "폴로":
                     personal_lev.setText("당신은 " + pref_str + "군요!");
                     personal_lev_img.setImageResource(R.drawable.level1);
                     break;
@@ -150,7 +150,7 @@ public class SettingActivity extends AppCompatActivity {
                         personal_lev.setText("당신은 " + sendText + "군요!");
                         personal_lev_img.setImageResource(R.drawable.level2);
                         break;
-                    case "세미":
+                    case "폴로":
                         personal_lev.setText("당신은 " + sendText + "군요!");
                         personal_lev_img.setImageResource(R.drawable.level1);
                         break;
