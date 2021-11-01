@@ -43,6 +43,12 @@ public class SearchResult extends AppCompatActivity {
 
         // 어댑터에 데이터 적용
         searchAdapter.setArrayList(fbList);
+        
+        // 아무 결과 없을 때 액티비티 종료
+        if(searchAdapter.getItemCount()==0) {
+            Toast.makeText(SearchResult.this, "검색결과가 없습니다", Toast.LENGTH_LONG).show();
+            finish();
+        }
 
         // 아이템 클릭시 화면 전환
         searchAdapter = new SearchAdapter(this, fbList);

@@ -66,12 +66,21 @@ public class BarcodeActivity extends AppCompatActivity {
                 readFirebaseData(new MyCallback() {
                     @Override
                     public void onCallback(FirebaseData data) {
-                        firebaseData = data;
-                        Intent intent = new Intent(BarcodeActivity.this, BarcodeResult.class);
-                        intent.putExtra("data", firebaseData); // 데이터 송신
-                        startActivity(intent);
-                        progressDialog.dismiss();
-                        finish();
+                        if(data==null){
+                            progressDialog.dismiss();
+                            Toast.makeText(BarcodeActivity.this, "등록되어 있지 않은 바코드 입니다.", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(BarcodeActivity.this,BarcodeActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                        else{
+                            firebaseData = data;
+                            Intent intent = new Intent(BarcodeActivity.this, BarcodeResult.class);
+                            intent.putExtra("data", firebaseData); // 데이터 송신
+                            startActivity(intent);
+                            progressDialog.dismiss();
+                            finish();
+                        }
                     }
                 });
             }
