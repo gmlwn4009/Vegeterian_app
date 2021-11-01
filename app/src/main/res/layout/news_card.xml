@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--뉴스내용을 담을 카드뷰-->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -9,8 +8,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/news_card"
@@ -27,7 +25,6 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/pushpin"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginBottom="16dp"
@@ -36,7 +33,7 @@
 
                 <!--제목-->
                 <TextView
-                    android:id="@+id/title_view"
+                    android:id="@+id/news_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
@@ -45,7 +42,7 @@
                     android:maxLines="2"
                     android:text="NEWS TITLE"
                     android:textColor="@color/black"
-                    android:textSize="18sp"></TextView>
+                    android:textSize="18sp"/>
 
                 <!--신문사-->
                 <LinearLayout
@@ -62,7 +59,7 @@
                         android:layout_gravity="center"/>
 
                     <TextView
-                        android:id="@+id/company_view"
+                        android:id="@+id/news_company"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:letterSpacing="-0.02"
@@ -87,7 +84,7 @@
                         android:layout_gravity="center"/>
 
                     <TextView
-                        android:id="@+id/pubDate_view"
+                        android:id="@+id/news_pub_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:letterSpacing="-0.02"

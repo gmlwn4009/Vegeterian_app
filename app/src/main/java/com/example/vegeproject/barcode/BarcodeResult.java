@@ -1,8 +1,12 @@
 package com.example.vegeproject.barcode;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,14 +18,10 @@ import com.example.vegeproject.R;
 import com.example.vegeproject.search.FirebaseData;
 
 import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class BarcodeResult extends AppCompatActivity {
 
     private FirebaseData firebaseData;
-    private static final Pattern PATTERN_BRACKET = Pattern.compile("\\([^\\(\\)]+\\)");
-    private static final String VOID = "";
 
     @Nullable
     @Override
@@ -32,20 +32,18 @@ public class BarcodeResult extends AppCompatActivity {
         TextView productName = findViewById(R.id.productName);
         TextView productkind = findViewById(R.id.productKind);
         ImageView productImage = findViewById(R.id.productImage);
-        TextView productLevel = findViewById(R.id.productLevel);
 
         // 데이터 수신
         Intent intent = getIntent();
         firebaseData = (FirebaseData)intent.getSerializableExtra("data");
         System.out.println(firebaseData.prdlstNm+ " / " + firebaseData.allergy + " / " + firebaseData.barcode);
 
-        productName.setText(firebaseData.getPrdlstNm());
-        productkind.setText("#"+intent.getStringExtra("prdKind"));
+        productName.setText(firebaseData.prdlstNm);
+        productkind.setText("#"+firebaseData.prdKind);
         Glide.with(this).load(firebaseData.getImgUrl()).into(productImage);
 
         // 성분값 가공
-        String allergy = intent.getStringExtra("allergy");
-        String[] allergies = allergy.split(",");
+        String[] allergies = firebaseData.allergy.split(",");
 
         // 단계 분류
         boolean[] contain = classifyLevel(allergies);
@@ -54,12 +52,8 @@ public class BarcodeResult extends AppCompatActivity {
         setComponent(allergies, allergies.length);
 
         // 단계 세팅
-        for (int i = 0; i < 5;i++)
+        for (int i = 0; i < 6;i++)
             if (contain[i]) { setLevel(i); break; }
-        if (contain[5])
-            productLevel.setText("알 수 없음");
-        else if ((contain[0] == false) && (contain[1] ==false)  && (contain[2] == false) && (contain[3] == false) && (contain[4] == false))
-            setLevel(5);
 
     }
 
@@ -68,29 +62,56 @@ public class BarcodeResult extends AppCompatActivity {
         boolean [] b_list = new boolean[6];
         Arrays.fill(b_list,false);
         for (String s : allergies) {
-            if (s.contains("돼지고기")||s.contains("쇠고기"))
-                b_list[0] = true;
-            else if (s.contains("닭고기"))
-                b_list[1] = true;
-            else if (s.contains("고등어")||s.contains("새우")||s.contains("게")||s.contains("조개류")||s.contains("오징어"))
-                b_list[2] = true;
-            else if (s.contains("난류")||s.contains("계란")||s.contains("알류"))
-                b_list[3] = true;
-            else if (s.contains("우유"))
-                b_list[4] = true;
-            else if (s.contains("없음"))
-                b_list[5] = true;
+            switch (s){
+                //플렉시테리언
+                case "돼지고기" : case "쇠고기" :
+                    b_list[0] = true;
+                    break;
+                //폴로
+                case "닭고기" :
+                    b_list[1] = true;
+                    break;
+                //페스코
+                case "고등어" : case "새우" : case "게" : case "조개류" : case "오징어" : case "굴" :
+                    b_list[2] = true;
+                    break;
+                //락토오보
+                case "계란" : case "난류" : case "알류" : case "난황" :
+                    b_list[3] = true;
+                    break;
+                //락토
+                case "우유" :
+                    b_list[4] = true;
+                    break;
+                //비건
+                default:
+                    b_list[5] = true;
+                    break;
+            }
         }
         return b_list;
     }
 
     // 성분값 세팅
     public void setComponent(String[] allergies, int length) {
-        int i, resID;
-        for (i = 0; i < length; i++) {
-            resID = getResources().getIdentifier("component"+(i+1), "id", this.getPackageName());
-            TextView component = findViewById(resID);
-            component.setText(allergies[i]);
+        int i, componentID, underlineID;
+        for (i = 0; i < 10; i++) {
+            componentID = getResources().getIdentifier("component" + (i + 1), "id", this.getPackageName());
+            TextView component = findViewById(componentID);
+
+            // 텍스트뷰에 성분값 적용
+            if (i < length)
+                component.setText(allergies[i]);
+
+                // 성분값 없는 레이아웃 제거
+            else {
+                component.setVisibility(View.GONE);
+                if (i > 5) {
+                    underlineID = getResources().getIdentifier("underline" + (i + 1), "id", this.getPackageName());
+                    View underline = findViewById(underlineID);
+                    underline.setVisibility(View.GONE);
+                }
+            }
         }
     }
 
@@ -113,22 +134,23 @@ public class BarcodeResult extends AppCompatActivity {
             int colorID = getResources().getIdentifier("rectangle_level", "drawable", this.getPackageName());
             btn.setBackgroundResource(colorID);
         }
+
+        // 단계 적합 여부
+        SharedPreferences prefLevel = getSharedPreferences("pref2", Activity.MODE_PRIVATE); // 프리퍼런스 초기화
+        SharedPreferences prefNick = getSharedPreferences("pref3",Activity.MODE_PRIVATE);
+        String myNick = prefNick.getString("SAVE_CHANGED_DATA","비거닝");
+        int myLevel = prefLevel.getInt("SAVE_LEVEL_NUMBER",-1); // 변수에 나의 단계 저장
+        TextView fitText = findViewById(R.id.fitness);
+
+        if (myLevel >= 0) {
+            int myLevelID = getResources().getIdentifier("text"+myLevel, "string", this.getPackageName());
+            fitText.setTextSize(14);
+            fitText.setTextColor(Color.parseColor("#000000"));
+
+            if (myLevel <= level)
+                fitText.setText(Html.fromHtml(getString(myLevelID) + "인 " + myNick + "님은<br>섭취 " + "<font color=\"#81b41a\"><b>" + "가능" + "</b></font>" + "한 제품이에요."));
+            else
+                fitText.setText(Html.fromHtml(getString(myLevelID) + "인 " + myNick + "님은<br>섭취 " + "<font color=\"#f44336\"><b>" + "불가능" + "</b></font>" + "한 제품이에요."));
+        }
     }
-
-    // 괄호와 괄호 내부 내용 모두 삭제
-//    private static String deleteBracket(String text) {
-//        Matcher matcher = PATTERN_BRACKET.matcher(text);
-//        String pureText = text;
-//        String removeTextArea = new String();
-//
-//        while(matcher.find()) {
-//            int startIndex = matcher.start();
-//            int endIndex = matcher.end();
-//            removeTextArea = pureText.substring(startIndex, endIndex);
-//            pureText = pureText.replace(removeTextArea, VOID);
-//            matcher = PATTERN_BRACKET.matcher(pureText);
-//        }
-//        return pureText;
-//    }
-
 }

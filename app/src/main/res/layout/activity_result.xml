@@ -188,15 +188,15 @@
                         android:id="@+id/btn1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginRight="5dp"
                         android:layout_weight="1"
+                        android:layout_marginRight="5dp"
                         android:background="@drawable/rectangle_level_gray"
                         android:gravity="center"
-                        android:letterSpacing="-0.05"
-                        android:text="폴로"
-                        android:textColor="@color/white"
+                        android:text="세미"
                         android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:letterSpacing="-0.05"/>
 
                     <TextView
                         android:id="@+id/btn2"

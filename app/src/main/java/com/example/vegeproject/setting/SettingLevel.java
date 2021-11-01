@@ -3,18 +3,19 @@ package com.example.vegeproject.setting;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.vegeproject.R;
 
-public class SettingLevel extends AppCompatActivity {
+public class SettingLevel extends Activity {
     SharedPreferences pref2;
     SharedPreferences.Editor editor2;
     String savedClickedData;
@@ -23,17 +24,18 @@ public class SettingLevel extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_setlevel);
+        this.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
         final RadioGroup rg = (RadioGroup) findViewById(R.id.RadioGroup1); // 채식단계 라디오 그룹
         final RadioButton r_began = (RadioButton) findViewById(R.id.lev_began);
         final RadioButton r_lacto = (RadioButton) findViewById(R.id.lev_lacto);
         final RadioButton r_lactovo = (RadioButton) findViewById(R.id.lev_lactovo);
         final RadioButton r_pesco = (RadioButton) findViewById(R.id.lev_pesco);
-        final RadioButton r_semi = (RadioButton) findViewById(R.id.lev_semi);
+        final RadioButton r_polo = (RadioButton) findViewById(R.id.lev_polo);
         final RadioButton r_flexi = (RadioButton) findViewById(R.id.lev_flexi);
         Button b = (Button) findViewById(R.id.select_ok); // 설정 완료 버튼
-
 
         // Shared Preference 초기화
         pref2 = getSharedPreferences("pref2", Activity.MODE_PRIVATE);
@@ -57,8 +59,8 @@ public class SettingLevel extends AppCompatActivity {
             case "페스코":
                 r_pesco.setChecked(true);
                 break;
-            case "세미":
-                r_semi.setChecked(true);
+            case "폴로":
+                r_polo.setChecked(true);
                 break;
             case "플렉시테리언":
                 r_flexi.setChecked(true);

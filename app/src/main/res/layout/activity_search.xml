@@ -51,10 +51,10 @@
         <ImageView
             android:id="@+id/searchButton"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:src="@drawable/icon_search"
+            android:layout_height="25dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_search" />
 
     </LinearLayout>
 
@@ -76,15 +76,23 @@
         android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/recentSearchItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ㅇㅇㅇ"
-            android:textColor="@color/black"
-            android:letterSpacing="-0.05"
-            android:layout_margin="15dp"/>
 
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:orientation="vertical"
+           />
+        <TextView
+            android:id="@+id/deleteText"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="전체 기록 삭제"
+            android:textSize="20dp"
+            android:layout_gravity="right|bottom"
+            android:layout_margin="10dp"
+
+/>
     </LinearLayout>
 
 </LinearLayout>
