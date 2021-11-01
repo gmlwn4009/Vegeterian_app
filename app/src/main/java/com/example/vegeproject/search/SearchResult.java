@@ -3,6 +3,7 @@ package com.example.vegeproject.search;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vegeproject.R;
+import com.example.vegeproject.barcode.BarcodeActivity;
 
 import java.util.ArrayList;
 
@@ -43,6 +45,10 @@ public class SearchResult extends AppCompatActivity {
 
         // 어댑터에 데이터 적용
         searchAdapter.setArrayList(fbList);
+        if(searchAdapter.getItemCount()==0) {
+            Toast.makeText(SearchResult.this, "검색결과가 없습니다", Toast.LENGTH_LONG).show();
+            finish();
+        }
 
         // 아이템 클릭시 화면 전환
         searchAdapter = new SearchAdapter(this, fbList);
