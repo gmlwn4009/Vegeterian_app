@@ -65,50 +65,42 @@
         android:letterSpacing="-0.05"
         android:layout_marginLeft="20dp"/>
 
-    <LinearLayout
+    <ScrollView
         android:id="@+id/cmdArea"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="420dp"
         android:background="@drawable/rectangle_dashgap"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
+
         android:layout_marginBottom="20dp"
-        android:orientation="vertical">
+        android:fillViewport="true">
 
 
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-           />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp">
-            <TextView
-                android:id="@+id/deleteselecText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="선택 기록 삭제"
-                android:textSize="18dp"
-                android:layout_marginLeft="80dp"
-                android:layout_gravity="bottom"
-                android:layout_marginRight="30dp"
-                />
-            <TextView
-                android:id="@+id/deleteText"
+            <ListView
+                android:id="@+id/listView"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="전체 기록 삭제"
-                android:textSize="18dp"
-                android:layout_gravity="bottom"
-                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                android:dividerHeight="0px"
+                android:divider="#FFFFFF"
                 />
+        </ScrollView>
 
-        </LinearLayout>
 
-    </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/deleteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:text="전체 기록 삭제"
+            android:textSize="18dp"
+
+            />
+
+
 </LinearLayout>
