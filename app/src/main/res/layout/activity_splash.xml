@@ -1,55 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/green">
+    android:background="#edeae7">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="60dp"
+        android:elevation="8dp"
+        android:src="@drawable/image_splash_text" />
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            android:background="@drawable/logo"
-            android:backgroundTint="@color/white"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            tools:ignore="InvalidId,MissingConstraints" />
+    <ImageView
+        android:id="@+id/splash_phone"
+        android:layout_width="333dp"
+        android:layout_height="500dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/image_splash_phone" />
 
-        <TextView
-            android:id="@+id/appname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="비거닝"
-            android:textSize="15sp"
-            android:textColor="@color/white"
-            android:letterSpacing="1"
-            app:layout_constraintTop_toBottomOf="@+id/logo"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="15dp"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Veganning"
-            android:textSize="10sp"
-            android:textColor="@color/white"
-            android:letterSpacing="1"
-            app:layout_constraintTop_toBottomOf="@+id/appname"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="5dp"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

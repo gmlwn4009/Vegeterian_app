@@ -1,36 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:descendantFocusability="blocksDescendants">
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
 
-    <com.google.android.material.card.MaterialCardView
+    <TextView
+        android:id="@+id/log"
         android:layout_width="match_parent"
-        android:layout_height="45dp">
+        android:layout_height="match_parent"
+        android:gravity="left|center"
+        android:letterSpacing="-0.05"
+        android:text="검색 기록"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:padding="10dp" />
 
-        <LinearLayout
-            android:id="@+id/log_card"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#E4E4E4"/>
 
-            <TextView
-                android:id="@+id/log"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="검색 기록"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:gravity="left|center"
-                android:paddingLeft="25dp"
-                android:background="#3CBDF479"
-            />
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>
